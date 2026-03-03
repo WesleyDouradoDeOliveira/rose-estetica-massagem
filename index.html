@@ -32,7 +32,7 @@
         nav a { text-decoration: none; color: var(--text); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.2px; transition: color 0.3s; padding: 6px 8px; white-space: nowrap; border-radius: 6px; }
         nav a:hover { color: var(--gold); background: rgba(197,160,89,0.06); }
         .btn-nav { background: var(--gradient-gold) !important; color: white !important; padding: 10px 18px !important; border-radius: 50px; font-weight: 600 !important; box-shadow: 0 4px 14px rgba(197,160,89,0.35); animation: pulse-gold 2.5s ease-in-out infinite; }
-        .hamburger { display: none; font-size: 1.4rem; color: var(--gold); cursor: pointer; }
+        .hamburger { display: none; font-size: 1.4rem; color: var(--gold); cursor: pointer; background:none; border:none; padding:8px; line-height:1; -webkit-tap-highlight-color: transparent; }
 
         /* ══ HERO COM FUNDO ══ */
         .hero {
@@ -575,9 +575,9 @@
         @media(max-width:1100px){ nav a{font-size:0.68rem;letter-spacing:0.8px;padding:5px 6px;} }
 
         @media(max-width:1024px){
-            nav { display:none; flex-direction:column; position:absolute; top:72px; left:0; right:0; background:rgba(255,255,255,0.98); backdrop-filter:blur(20px); padding:22px 6%; border-bottom:2px solid rgba(197,160,89,0.15); box-shadow:0 12px 32px rgba(0,0,0,0.1); z-index:1001; }
-            nav.open { display:flex; }
-            nav a { font-size:0.92rem; padding:12px 4px; border-bottom:1px solid rgba(197,160,89,0.08); letter-spacing:1px; }
+            nav { display:none; flex-direction:column; position:fixed; top:0; left:0; right:0; bottom:0; background:#fff; padding:100px 6% 40px; z-index:9998; overflow-y:auto; }
+            nav.open { display:flex !important; }
+            nav a { font-size:1.1rem; padding:18px 0; border-bottom:1px solid rgba(197,160,89,0.12); letter-spacing:1px; color:var(--text); font-weight:500; }
             nav a:last-child { border-bottom:none; margin-top:8px; }
             .hamburger { display:block; }
 
@@ -662,8 +662,9 @@
         <div class="logo-icon">R</div>
         <div><div class="logo-name">Rose Dourado</div><span class="logo-sub">Estética Avançada</span></div>
     </a>
-    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu" type="button"><i class="fas fa-bars"></i></button>
     <nav id="mainNav">
+        <button onclick="toggleMenu()" style="position:absolute;top:22px;right:5%;background:none;border:none;font-size:1.6rem;color:var(--gold);cursor:pointer;padding:8px;"><i class="fas fa-times"></i></button>
         <a href="#massagens">Massagens</a>
         <a href="#estetica-facial">Limpeza de Pele</a>
         <a href="#pacotes">Pacotes</a>
@@ -1073,31 +1074,22 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── Nav ── */
 function toggleMenu(){
-    const nav = document.getElementById('mainNav');
-    const isOpen = nav.classList.toggle('open');
-    const icon = document.querySelector('.hamburger i');
+    var nav = document.getElementById('mainNav');
+    var isOpen = nav.classList.toggle('open');
+    var icon = document.querySelector('.hamburger i');
     if(icon) icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
 }
+
 function toggleFaq(el){
     const item=el.parentElement,ans=el.nextElementSibling,open=item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});
     if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
 }
-document.addEventListener('click', function(e){
-    const nav = document.getElementById('mainNav');
-    const hamburger = document.querySelector('.hamburger');
-    if(nav && nav.classList.contains('open') && !nav.contains(e.target) && !hamburger.contains(e.target)){
-        nav.classList.remove('open');
-        const icon = document.querySelector('.hamburger i');
-        if(icon) icon.className = 'fas fa-bars';
-    }
-});
-
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',e=>{
         const t=document.querySelector(a.getAttribute('href'));
         if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('mainNav').classList.remove('open');
-        const icon = document.querySelector('.hamburger i');
+        var icon = document.querySelector('.hamburger i');
         if(icon) icon.className = 'fas fa-bars';}
     });
 });
@@ -1235,4 +1227,8 @@ makePlayer({ vid:'es-video', wrap:'espacoWrap', overlay:'es-overlay', oicon:'es-
     const obs=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){track.querySelectorAll('.dep-card').forEach((c,i)=>{c.style.animation=`cardIn 0.5s ease ${i*0.035}s both`;});obs.unobserve(en.target);}});},{threshold:0.15});
     obs.observe(track);
     buildDots();
-    window.addEventListener('resiz
+    window.addEventListener('resize', function(){ goTo(0); buildDots(); });
+})();
+</script>
+</body>
+</html>
