@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Dourado | Estética Avançada & Bem-Estar</title>
+    <meta name="description" content="Tratamentos estéticos de elite em São Paulo. Limpeza de pele, massagens e drenagem com atendimento exclusivo e resultados reais. Agende já!">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #c5a059; --gold-light: #f1daae; --gold-dark: #9a7a3c;
+            --rose: #e8c4d0; --rose-light: #fdf0f4; --rose-mid: #f5dce6; --rose-dark: #c9879e;
+            --text: #2c2420; --text-muted: #8a7a76; --white: #ffffff; --off-white: #faf8f6;
+            --whatsapp: #25d366;
+            --gradient-gold: linear-gradient(135deg, #9a7a3c 0%, #f1daae 45%, #c5a059 75%, #9a7a3c 100%);
+            --gradient-rose: linear-gradient(135deg, #fdf0f4 0%, #e8c4d0 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Jost', sans-serif; background: linear-gradient(160deg, #fdf0f4 0%, #ffffff 40%, #fdf8f0 100%); background-attachment: fixed; color: var(--text); overflow-x: hidden; }
+        .top-bar { background: linear-gradient(90deg, var(--rose-mid) 0%, var(--rose-light) 50%, var(--rose-mid) 100%); color: var(--gold-dark); text-align: center; padding: 9px 5%; font-size: 0.76rem; letter-spacing: 1.8px; text-transform: uppercase; border-bottom: 1px solid rgba(197,160,89,0.2); }
+        .top-bar strong { color: var(--rose-dark); }
+
+        /* HEADER */
+        header { background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); padding: 0 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; height: 72px; border-bottom: 1px solid rgba(197,160,89,0.15); box-shadow: 0 4px 28px rgba(197,160,89,0.06); }
+        .logo { display: flex; align-items: center; gap: 11px; text-decoration: none; flex-shrink: 0; }
+        .logo-icon { width: 44px; height: 44px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Dancing Script', cursive; font-size: 1.55rem; color: white; box-shadow: 0 4px 14px rgba(197,160,89,0.35); flex-shrink: 0; }
+        .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.42rem; color: var(--gold-dark); font-weight: 700; line-height: 1; }
+        .logo-sub { font-size: 0.52rem; text-transform: uppercase; letter-spacing: 3px; color: var(--rose-dark); display: block; margin-top: 3px; }
+        nav { display: flex; gap: 6px; align-items: center; flex-wrap: nowrap; }
+        nav a { text-decoration: none; color: var(--text); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.2px; transition: color 0.3s; padding: 6px 8px; white-space: nowrap; border-radius: 6px; }
+        nav a:hover { color: var(--gold); background: rgba(197,160,89,0.06); }
+        .btn-nav { background: var(--gradient-gold) !important; color: white !important; padding: 10px 18px !important; border-radius: 50px; font-weight: 600 !important; box-shadow: 0 4px 14px rgba(197,160,89,0.35); animation: pulse-gold 2.5s ease-in-out infinite; }
+        .hamburger { display: none; font-size: 1.4rem; color: var(--gold); cursor: pointer; }
+
+        /* HERO */
+        .hero { min-height: 91vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; overflow: hidden; background: linear-gradient(135deg, #fdf0f4 0%, #ffffff 55%, #fdf8f0 100%); }
+        .hero-left { padding: 80px 6% 80px 7%; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; background: rgba(232,196,208,0.22); border: 1px solid var(--rose); border-radius: 50px; padding: 8px 18px; margin-bottom: 26px; }
+        .hero-eyebrow span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2.5px; color: var(--rose-dark); font-weight: 600; }
+        .eyebrow-dot { width: 6px; height: 6px; background: var(--rose-dark); border-radius: 50%; flex-shrink: 0; }
+        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.4rem); color: var(--text); line-height: 1.1; margin-bottom: 22px; }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+        .hero-desc { font-size: 1.03rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 36px; max-width: 480px; }
+        .hero-ctas { display: flex; gap: 13px; flex-wrap: wrap; }
+
+        /* CARD FOTO PROFISSIONAL */
+        .hero-prof-card { display: none; margin: 32px 0 0; }
+        .hero-prof-inner { position: relative; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 60px rgba(197,160,89,0.22), 0 0 0 1px rgba(197,160,89,0.15); background: var(--gradient-rose); }
+        .hero-prof-inner img { width: 100%; max-height: 400px; object-fit: cover; object-position: top center; display: block; }
+        .hero-prof-inner::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(to top, rgba(253,240,244,0.82) 0%, transparent 100%); pointer-events: none; }
+        .hero-prof-badges { position: absolute; bottom: 14px; left: 0; right: 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; z-index: 2; padding: 0 14px; }
+        .hero-prof-badge { display: flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.93); backdrop-filter: blur(14px); border-radius: 50px; padding: 7px 14px; box-shadow: 0 4px 16px rgba(197,160,89,0.2); font-size: 0.73rem; font-weight: 500; color: var(--text); border: 1px solid rgba(197,160,89,0.18); white-space: nowrap; }
+        .hero-prof-badge i { color: var(--gold); font-size: 0.67rem; }
+
+        @keyframes pulse-gold { 0%,100%{box-shadow:0 6px 20px rgba(197,160,89,0.4),0 0 0 0 rgba(197,160,89,0.3)}50%{box-shadow:0 8px 30px rgba(197,160,89,0.65),0 0 0 10px rgba(197,160,89,0)} }
+        @keyframes pulse-wpp  { 0%,100%{box-shadow:0 6px 20px rgba(37,211,102,0.4),0 0 0 0 rgba(37,211,102,0.3)}50%{box-shadow:0 8px 30px rgba(37,211,102,0.65),0 0 0 10px rgba(37,211,102,0)} }
+        @keyframes wpp-pulse  { 0%,100%{box-shadow:0 8px 22px rgba(37,211,102,0.4),0 0 0 0 rgba(37,211,102,0.3)}50%{box-shadow:0 8px 22px rgba(37,211,102,0.4),0 0 0 14px rgba(37,211,102,0)} }
+        @keyframes float      { 0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)} }
+        @keyframes slide-left { 0%{transform:translateX(0)}100%{transform:translateX(-50%)} }
+        @keyframes cardIn     { from{opacity:0;transform:translateY(22px) scale(0.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+        @keyframes lvBlink    { 0%,100%{opacity:1} 50%{opacity:0.4} }
+        @keyframes footerSonReveal { 0%{opacity:0;transform:translateY(10px) scale(0.96);filter:blur(3px)} 60%{opacity:1;filter:blur(0)} 100%{opacity:1;transform:translateY(0) scale(1)} }
+
+        .btn-primary   { display:inline-flex;align-items:center;gap:10px;background:var(--gradient-gold);color:white;padding:15px 30px;border-radius:50px;text-decoration:none;font-weight:600;font-size:0.9rem;letter-spacing:0.5px;transition:all 0.3s;animation:pulse-gold 2.2s ease-in-out infinite; }
+        .btn-primary:hover   { transform:translateY(-3px);animation:none;box-shadow:0 14px 32px rgba(197,160,89,0.52); }
+        .btn-secondary { display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);padding:15px 26px;border-radius:50px;text-decoration:none;font-weight:500;font-size:0.9rem;border:1.5px solid rgba(197,160,89,0.4);transition:all 0.3s;animation:pulse-gold 2.8s ease-in-out infinite; }
+        .btn-secondary:hover { border-color:var(--gold);color:var(--gold);background:rgba(197,160,89,0.05);animation:none; }
+        .btn-wpp    { display:inline-flex;align-items:center;gap:8px;background:var(--whatsapp);color:white;padding:10px 19px;border-radius:50px;text-decoration:none;font-weight:600;font-size:0.82rem;transition:all 0.3s;animation:pulse-wpp 2.2s ease-in-out infinite; }
+        .btn-wpp:hover    { transform:translateY(-2px);animation:none;box-shadow:0 8px 20px rgba(37,211,102,0.4); }
+        .btn-wpp-lg { display:inline-flex;align-items:center;gap:12px;background:var(--whatsapp);color:white;padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1rem;transition:all 0.3s;animation:pulse-wpp 2.2s ease-in-out infinite; }
+        .btn-wpp-lg:hover { transform:translateY(-3px) scale(1.03);animation:none; }
+        .btn-wpp-lg i { font-size:1.28rem; }
+
+        .hero-stats   { display:flex;gap:28px;margin-top:42px;padding-top:28px;border-top:1px solid rgba(197,160,89,0.2); }
+        .stat-item    { text-align:center; }
+        .stat-number  { font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:700;color:var(--gold); }
+        .stat-label   { font-size:0.67rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-top:2px; }
+        .hero-right   { position:relative;height:100%;min-height:91vh; }
+        .hero-image-bg{ position:absolute;inset:0;background:var(--gradient-rose);clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%); }
+        .hero-main-img{ position:absolute;bottom:0;left:10%;width:80%;max-height:87vh;object-fit:cover;object-position:top;border-radius:200px 200px 0 0;box-shadow:-20px 20px 60px rgba(0,0,0,0.1); }
+        .hero-badge   { position:absolute;bottom:40px;left:2%;background:white;border-radius:18px;padding:14px 18px;box-shadow:0 14px 38px rgba(0,0,0,0.08);display:flex;align-items:center;gap:12px;z-index:3;animation:float 3s ease-in-out infinite; }
+        .badge-icon   { width:40px;height:40px;background:var(--gradient-gold);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white; }
+        .badge-text strong { display:block;font-size:0.88rem;color:var(--text); }
+        .badge-text span   { font-size:0.69rem;color:var(--text-muted); }
+        .stars-badge  { position:absolute;top:35%;right:5%;background:white;border-radius:14px;padding:13px 17px;box-shadow:0 10px 28px rgba(0,0,0,0.07);text-align:center;z-index:3;animation:float 3.5s ease-in-out infinite 1s; }
+        .stars        { color:#f4a428;font-size:0.83rem;letter-spacing:2px; }
+        .stars-text   { font-size:0.68rem;color:var(--text-muted);margin-top:3px; }
+
+        /* RIBBON */
+        .ribbon { background:linear-gradient(90deg,var(--rose-mid) 0%,var(--rose-light) 50%,var(--rose-mid) 100%);padding:15px 0;overflow:hidden;border-top:1px solid rgba(197,160,89,0.15);border-bottom:1px solid rgba(197,160,89,0.15); }
+        .ribbon-track { display:flex;gap:48px;animation:slide-left 35s linear infinite;width:max-content; }
+        .ribbon-item  { display:flex;align-items:center;gap:10px;color:var(--gold-dark);font-size:0.74rem;text-transform:uppercase;letter-spacing:2px;white-space:nowrap;font-weight:500; }
+        .ribbon-item i { color:var(--rose-dark); }
+
+        /* SECTIONS */
+        section { padding:88px 7%; }
+        .section-label { display:flex;align-items:center;gap:12px;margin-bottom:12px;justify-content:center; }
+        .section-label::before,.section-label::after { content:'';height:1px;width:36px;background:rgba(197,160,89,0.35); }
+        .section-label span { font-size:0.69rem;text-transform:uppercase;letter-spacing:3px;color:var(--rose-dark);font-weight:600;white-space:nowrap; }
+        .section-label-left { display:flex;align-items:center;gap:12px;margin-bottom:12px; }
+        .section-label-left::after { content:'';height:1px;flex:1;background:rgba(197,160,89,0.3); }
+        .section-label-left span { font-size:0.69rem;text-transform:uppercase;letter-spacing:3px;color:var(--rose-dark);font-weight:600;white-space:nowrap; }
+        .section-center { text-align:center;max-width:590px;margin:0 auto; }
+        .section-title  { font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);color:var(--text);line-height:1.2;margin-bottom:13px; }
+        .section-title span { color:var(--gold);font-style:italic; }
+        .section-desc   { font-size:0.98rem;color:var(--text-muted);line-height:1.75; }
+        .gold-divider   { width:46px;height:2px;background:var(--gradient-gold);border-radius:2px;margin:14px auto; }
+        .gold-divider.left { margin:14px 0; }
+
+        /* ══ FEATURES — efeito ativo no touch (mobile) ══ */
+        .features { background:linear-gradient(160deg,#fff8fb 0%,#ffffff 50%,#fdf8f0 100%);padding:78px 7%; }
+        .features-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:20px;margin-top:48px; }
+        .feature-card {
+            background:white;border-radius:22px;padding:30px 24px;
+            border:1px solid rgba(197,160,89,0.12);
+            transition:all 0.35s;position:relative;overflow:hidden;text-align:center;
+        }
+        .feature-card::before {
+            content:'';position:absolute;top:0;left:0;right:0;height:3px;
+            background:var(--gradient-gold);transform:scaleX(0);
+            transition:transform 0.35s;transform-origin:left;
+        }
+        /* desktop hover */
+        .feature-card:hover::before { transform:scaleX(1); }
+        .feature-card:hover { transform:translateY(-6px);box-shadow:0 20px 38px rgba(197,160,89,0.1);border-color:rgba(197,160,89,0.28); }
+        .feature-card:hover .feature-icon { background:var(--gradient-gold); }
+        .feature-card:hover .feature-icon i { background:none;-webkit-background-clip:unset;-webkit-text-fill-color:white; }
+        /* touch/mobile ativo via classe JS */
+        .feature-card.touch-active::before { transform:scaleX(1); }
+        .feature-card.touch-active { transform:translateY(-6px);box-shadow:0 20px 38px rgba(197,160,89,0.1);border-color:rgba(197,160,89,0.28); }
+        .feature-card.touch-active .feature-icon { background:var(--gradient-gold); }
+        .feature-card.touch-active .feature-icon i { background:none;-webkit-background-clip:unset;-webkit-text-fill-color:white; }
+        .feature-icon { width:56px;height:56px;background:linear-gradient(135deg,#fdf0f4,#f5dce6);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin:0 auto 16px;transition:background 0.3s; }
+        .feature-icon i { background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent; }
+        .feature-title { font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:700;color:var(--text);margin-bottom:9px; }
+        .feature-text  { font-size:0.84rem;color:var(--text-muted);line-height:1.65; }
+
+        /* SERVICES */
+        #massagens,#estetica-facial { background:linear-gradient(160deg,#ffffff 0%,#fdf8f5 100%); }
+        .services-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px; }
+        .service-card  { background:white;border-radius:24px;overflow:hidden;box-shadow:0 4px 18px rgba(197,160,89,0.07);transition:all 0.4s;border:1px solid rgba(197,160,89,0.1); }
+        .service-card:hover { transform:translateY(-10px);box-shadow:0 24px 46px rgba(197,160,89,0.14); }
+        .service-img-wrap { position:relative;overflow:hidden;height:225px; }
+        .service-img-wrap img { width:100%;height:100%;object-fit:cover;transition:transform 0.6s; }
+        .service-card:hover .service-img-wrap img { transform:scale(1.07); }
+        .service-tag   { position:absolute;top:14px;left:14px;background:white;border-radius:50px;padding:4px 12px;font-size:0.67rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold-dark);box-shadow:0 2px 10px rgba(0,0,0,0.07); }
+        .service-body  { padding:24px; }
+        .service-name  { font-family:'Cormorant Garamond',serif;font-size:1.38rem;font-weight:700;color:var(--text);margin-bottom:8px; }
+        .service-desc  { font-size:0.865rem;color:var(--text-muted);line-height:1.65;margin-bottom:18px; }
+
+        /* PROMO */
+        .promo-section { background:linear-gradient(160deg,#fdf8f0 0%,#fff5f8 100%); }
+        .promo-grid    { display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:22px;margin-top:48px; }
+        .promo-card    { background:white;border:1.5px solid rgba(197,160,89,0.2);border-radius:26px;padding:34px 26px;position:relative;overflow:hidden;transition:all 0.35s;box-shadow:0 4px 18px rgba(197,160,89,0.05); }
+        .promo-card::after { content:'';position:absolute;bottom:-50px;right:-50px;width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,rgba(232,196,208,0.12),rgba(197,160,89,0.05)); }
+        .promo-card:hover  { border-color:var(--gold);transform:translateY(-5px);box-shadow:0 20px 38px rgba(197,160,89,0.12); }
+        .promo-card.featured { border-color:var(--gold);background:linear-gradient(135deg,#fffdf7,#fff8fb);box-shadow:0 8px 28px rgba(197,160,89,0.14); }
+        .promo-badge   { position:absolute;top:18px;right:18px;background:var(--gradient-gold);color:white;font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:5px 11px;border-radius:50px; }
+        .promo-icon    { font-size:1.9rem;margin-bottom:15px; }
+        .promo-icon i  { background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent; }
+        .promo-name    { font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:9px; }
+        .promo-desc    { font-size:0.84rem;color:var(--text-muted);line-height:1.65;margin-bottom:20px; }
+        .promo-includes { list-style:none;margin-bottom:24px; }
+        .promo-includes li { font-size:0.84rem;color:var(--text-muted);padding:6px 0;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(197,160,89,0.1); }
+        .promo-includes li i { color:var(--gold);font-size:0.63rem; }
+
+        /* ANTES DEPOIS */
+        #antes-depois { background:linear-gradient(160deg,#ffffff 0%,#fdf8f5 100%); }
+        .before-after-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:24px;margin-top:48px; }
+        .ba-card   { border-radius:20px;overflow:hidden;box-shadow:0 8px 26px rgba(197,160,89,0.09); }
+        .ba-images { display:grid;grid-template-columns:1fr 1fr;position:relative; }
+        .ba-images img { width:100%;height:205px;object-fit:cover; }
+        .ba-label  { position:absolute;top:12px;padding:4px 11px;font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;border-radius:50px; }
+        .ba-label.before { left:12px;background:rgba(44,36,32,0.52);color:white; }
+        .ba-label.after  { right:12px;background:var(--gold);color:white; }
+        .ba-divider { position:absolute;top:0;bottom:0;left:50%;width:3px;background:white;transform:translateX(-50%); }
+        .ba-divider-icon { position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30px;height:30px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.13);color:var(--gold);font-size:0.7rem; }
+        .ba-info   { background:white;padding:15px 18px; }
+        .ba-title  { font-weight:600;font-size:0.92rem;color:var(--text); }
+        .ba-sessions { font-size:0.75rem;color:var(--text-muted);margin-top:3px; }
+
+        /* ══ SEÇÃO LIMPEZA DE PELE EM AÇÃO ══ */
+        .limpeza-video-section { background:linear-gradient(160deg,#1a0e13 0%,#2c1a22 50%,#1e1208 100%); padding:88px 7%; position:relative; overflow:hidden; }
+        .limpeza-video-section::before { content:''; position:absolute; inset:0; background-image:radial-gradient(ellipse 70% 50% at 10% 10%,rgba(197,160,89,0.06) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 90% 90%,rgba(232,196,208,0.05) 0%,transparent 60%); pointer-events:none; }
+        .limpeza-layout { display:grid; grid-template-columns:1fr 1.1fr; gap:64px; align-items:center; position:relative; z-index:2; max-width:1200px; margin:0 auto; }
+        .limpeza-section-label { display:inline-flex; align-items:center; gap:10px; background:rgba(197,160,89,0.1); border:1px solid rgba(197,160,89,0.28); border-radius:50px; padding:7px 16px; margin-bottom:20px; }
+        .limpeza-section-label span { font-size:0.68rem; text-transform:uppercase; letter-spacing:3px; color:var(--gold-light); font-weight:600; }
+        .limpeza-section-label i { color:var(--gold); font-size:0.72rem; }
+        .limpeza-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,2.9rem); color:#fff; line-height:1.15; margin-bottom:16px; font-weight:300; }
+        .limpeza-title em { font-style:italic; background:var(--gradient-gold); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:600; }
+        .limpeza-divider { width:44px; height:2px; background:var(--gradient-gold); border-radius:2px; margin:16px 0 20px; }
+        .limpeza-desc { font-size:0.96rem; color:rgba(255,255,255,0.6); line-height:1.8; margin-bottom:28px; }
+        .limpeza-steps { list-style:none; margin-bottom:32px; }
+        .limpeza-steps li { display:flex; align-items:flex-start; gap:14px; padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.06); color:rgba(255,255,255,0.72); font-size:0.88rem; line-height:1.55; }
+        .limpeza-steps li:last-child { border-bottom:none; }
+        .limpeza-step-num { flex-shrink:0; width:26px; height:26px; border-radius:50%; background:var(--gradient-gold); display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; color:white; margin-top:1px; }
+        .limpeza-step-text strong { display:block; color:rgba(255,255,255,0.92); font-size:0.9rem; margin-bottom:2px; }
+        .limpeza-highlight-box { display:flex; align-items:center; gap:14px; background:rgba(197,160,89,0.1); border:1px solid rgba(197,160,89,0.25); border-radius:16px; padding:16px 20px; margin-bottom:28px; }
+        .limpeza-highlight-box i { font-size:1.4rem; background:var(--gradient-gold); -webkit-background-clip:text; -webkit-text-fill-color:transparent; flex-shrink:0; }
+        .limpeza-highlight-box p { font-size:0.86rem; color:rgba(255,255,255,0.72); line-height:1.55; }
+        .limpeza-highlight-box p strong { color:var(--gold-light); }
+
+        /* ══ PLAYER DE VÍDEO UNIVERSAL ══ */
+        /* container portrait — mesmo estilo nos dois */
+        .vid-wrap {
+            position:relative; border-radius:28px; overflow:hidden;
+            box-shadow:0 32px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(197,160,89,0.2);
+            background:#0d0709; cursor:pointer;
+            aspect-ratio:9/16; max-height:600px;
+        }
+        /* espaço — mesmo container, fundo claro */
+        .vid-wrap.espaco { background:#1a1410; box-shadow:0 32px 80px rgba(197,160,89,0.22), 0 0 0 1px rgba(197,160,89,0.2); }
+        .vid-wrap video {
+            width:100%; height:100%; object-fit:cover; display:block;
+            transition:filter 0.3s;
+        }
+        .vid-wrap:hover video { filter:brightness(0.88); }
+        /* gradiente inferior */
+        .vid-gradient { position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 100%); pointer-events:none; z-index:3; }
+        /* tag topo esquerda */
+        .vid-tag { position:absolute; top:14px; left:14px; background:rgba(0,0,0,0.38); backdrop-filter:blur(12px); border:1px solid rgba(197,160,89,0.35); border-radius:50px; padding:5px 13px; display:flex; align-items:center; gap:7px; z-index:5; }
+        .vid-tag .vid-dot { width:7px; height:7px; border-radius:50%; background:#e05555; box-shadow:0 0 0 3px rgba(224,85,85,0.28); animation:lvBlink 1.4s ease-in-out infinite; }
+        .vid-tag.espaco-tag { border-color:rgba(255,255,255,0.2); }
+        .vid-tag.espaco-tag .vid-dot { background:var(--gold); box-shadow:0 0 0 3px rgba(197,160,89,0.3); animation:none; }
+        .vid-tag span { font-size:0.68rem; font-weight:700; color:white; letter-spacing:1px; text-transform:uppercase; }
+        .vid-tag i { color:#f1daae; font-size:0.72rem; }
+        /* overlay play/pause central */
+        .vid-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; z-index:4; pointer-events:none; opacity:0; transition:opacity 0.28s; }
+        .vid-overlay.show { opacity:1; }
+        .vid-overlay-icon { width:66px; height:66px; border-radius:50%; background:rgba(197,160,89,0.85); display:flex; align-items:center; justify-content:center; color:white; font-size:1.6rem; box-shadow:0 8px 32px rgba(0,0,0,0.4); }
+        /* info badge no fundo */
+        .vid-info { position:absolute; bottom:68px; left:14px; right:14px; z-index:5; pointer-events:none; }
+        .vid-info-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(0,0,0,0.42); backdrop-filter:blur(14px); border:1px solid rgba(197,160,89,0.3); border-radius:12px; padding:8px 13px; }
+        .vid-info-badge i { color:var(--gold-light); font-size:0.75rem; }
+        .vid-info-badge span { font-size:0.73rem; color:rgba(255,255,255,0.88); font-weight:500; }
+        /* ── CONTROLES ── */
+        .vid-controls {
+            position:absolute; bottom:0; left:0; right:0; z-index:6;
+            padding:52px 14px 12px;
+            background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,transparent 100%);
+            display:flex; flex-direction:column; gap:8px;
+            opacity:0; transition:opacity 0.3s;
+        }
+        .vid-wrap:hover .vid-controls { opacity:1; }
+        /* barra de progresso (seek) */
+        .vid-seek-row { display:flex; align-items:center; gap:8px; }
+        .vid-time { font-size:0.65rem; color:rgba(255,255,255,0.7); white-space:nowrap; font-variant-numeric:tabular-nums; min-width:36px; }
+        .vid-seek {
+            -webkit-appearance:none; flex:1; height:3px; border-radius:3px;
+            background:rgba(255,255,255,0.25); outline:none; cursor:pointer;
+            /* progresso dinâmico via JS --prog */
+            background:linear-gradient(to right, #f1daae 0%, #f1daae calc(var(--prog,0)*100%), rgba(255,255,255,0.25) calc(var(--prog,0)*100%));
+        }
+        .vid-seek::-webkit-slider-thumb { -webkit-appearance:none; width:12px; height:12px; border-radius:50%; background:#f1daae; cursor:pointer; box-shadow:0 0 4px rgba(0,0,0,0.4); }
+        .vid-seek::-moz-range-thumb { width:12px; height:12px; border-radius:50%; background:#f1daae; cursor:pointer; border:none; }
+        /* botões + volume */
+        .vid-btns-row { display:flex; align-items:center; gap:10px; }
+        .vid-btn { width:32px; height:32px; border-radius:50%; border:none; cursor:pointer; background:rgba(255,255,255,0.14); backdrop-filter:blur(8px); color:white; font-size:0.82rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s,transform 0.2s; flex-shrink:0; }
+        .vid-btn:hover { background:rgba(197,160,89,0.8); transform:scale(1.1); }
+        .vid-vol-wrap { display:flex; align-items:center; gap:7px; background:rgba(255,255,255,0.12); backdrop-filter:blur(8px); border-radius:50px; padding:5px 12px; }
+        .vid-vol-wrap i { color:rgba(255,255,255,0.8); font-size:0.74rem; }
+        .vid-vol { -webkit-appearance:none; width:64px; height:3px; border-radius:3px; background:rgba(255,255,255,0.28); outline:none; cursor:pointer; }
+        .vid-vol::-webkit-slider-thumb { -webkit-appearance:none; width:11px; height:11px; border-radius:50%; background:#f1daae; cursor:pointer; }
+
+        /* ── seção Nosso Espaço — centraliza o player portrait ── */
+        .espaco-section { background:linear-gradient(160deg,#fdf4f8 0%,#fffbf5 100%); padding:88px 7%; }
+        .espaco-player-wrap { margin-top:48px; display:flex; justify-content:center; }
+        .espaco-player-wrap .vid-wrap { max-width:360px; width:100%; }
+
+        /* BIO */
+        .bio-section { background:linear-gradient(160deg,#fff8fb 0%,#fdf8f0 100%); display:grid; grid-template-columns:1fr 1.3fr; gap:58px; align-items:center; padding:88px 7%; }
+        .bio-img-wrap { position:relative; }
+        .bio-video { width:100%;border-radius:175px 175px 22px 22px;box-shadow:16px 16px 48px rgba(197,160,89,0.14);object-fit:cover;aspect-ratio:3/4;max-height:520px; }
+        .bio-cert { position:absolute;bottom:-16px;right:-12px;background:white;border-radius:16px;padding:14px 18px;box-shadow:0 10px 26px rgba(197,160,89,0.14);display:flex;align-items:center;gap:11px;border:1px solid rgba(197,160,89,0.14); }
+        .cert-icon { width:40px;height:40px;background:var(--gradient-gold);border-radius:11px;display:flex;align-items:center;justify-content:center;color:white;overflow:hidden; }
+        .cert-icon img { width:100%;height:100%;object-fit:cover;border-radius:11px; }
+        .cert-text strong { display:block;font-size:0.86rem;color:var(--text); }
+        .cert-text span   { font-size:0.69rem;color:var(--text-muted); }
+        .bio-content { display:flex; flex-direction:column; justify-content:center; }
+        .bio-content h2 { font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,3.5vw,2.65rem);color:var(--text);line-height:1.2;margin-bottom:16px; }
+        .bio-content h2 em { color:var(--gold);font-style:italic; }
+        .bio-content p { font-size:0.96rem;color:var(--text-muted);line-height:1.8;margin-bottom:11px; }
+        .bio-badges { display:flex;flex-wrap:wrap;gap:8px;margin:22px 0; }
+        .bio-badge { background:white;border:1px solid rgba(197,160,89,0.26);border-radius:50px;padding:6px 13px;font-size:0.75rem;font-weight:500;color:var(--gold-dark);display:flex;align-items:center;gap:6px; }
+        .bio-badge i { font-size:0.67rem; }
+
+        /* DEPOIMENTOS */
+        #depoimentos { position:relative; overflow:hidden; padding:100px 0 80px; background:linear-gradient(160deg,#1a0e13 0%,#2c1a22 40%,#1e1208 100%); }
+        #depoimentos::before { content:''; position:absolute; inset:0; background-image:radial-gradient(ellipse 80% 50% at 20% 20%,rgba(197,160,89,0.07) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(232,196,208,0.06) 0%,transparent 60%); pointer-events:none; }
+        #depoimentos::after { content:'❝'; position:absolute; top:-40px; left:5%; font-size:28rem; color:rgba(197,160,89,0.025); font-family:Georgia,serif; line-height:1; pointer-events:none; user-select:none; }
+        .dep-header { text-align:center; padding:0 7%; margin-bottom:60px; position:relative; z-index:2; }
+        .dep-label { display:inline-flex;align-items:center;gap:12px;margin-bottom:18px; }
+        .dep-label::before { content:'';width:40px;height:1px;background:linear-gradient(90deg,transparent,rgba(197,160,89,0.6)); }
+        .dep-label::after  { content:'';width:40px;height:1px;background:linear-gradient(90deg,rgba(197,160,89,0.6),transparent); }
+        .dep-label span { font-size:0.68rem;text-transform:uppercase;letter-spacing:3.5px;color:var(--gold-light);font-weight:600; }
+        .dep-title { font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);color:#fff;line-height:1.15;margin-bottom:14px;font-weight:300; }
+        .dep-title em { font-style:italic;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:600; }
+        .dep-subtitle { font-size:0.92rem;color:rgba(255,255,255,0.45);letter-spacing:0.5px; }
+        .dep-rating-summary { display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(197,160,89,0.2);border-radius:50px;padding:10px 24px;margin-top:20px; }
+        .dep-rating-stars { color:#f4a428;font-size:0.9rem;letter-spacing:3px; }
+        .dep-rating-text { font-size:0.78rem;color:rgba(255,255,255,0.6); }
+        .dep-rating-text strong { color:rgba(255,255,255,0.9);font-size:1.05rem; }
+        .dep-carousel-outer { position:relative; z-index:2; padding:0 72px; margin-bottom:8px; }
+        .dep-carousel-viewport { overflow:hidden; border-radius:24px; -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 4%,black 96%,transparent 100%); mask-image:linear-gradient(90deg,transparent 0%,black 4%,black 96%,transparent 100%); }
+        .dep-carousel-track { display:flex; gap:20px; transition:transform 0.6s cubic-bezier(0.25,0.1,0.25,1); will-change:transform; cursor:grab; user-select:none; align-items:stretch; padding:12px 4px 20px; }
+        .dep-carousel-track:active { cursor:grabbing; }
+        .dep-carousel-btn { position:absolute; top:50%; transform:translateY(-50%); width:50px; height:50px; border-radius:50%; border:none; cursor:pointer; background:rgba(255,255,255,0.06); backdrop-filter:blur(16px); outline:1px solid rgba(197,160,89,0.28); color:var(--gold-light); font-size:1rem; display:flex; align-items:center; justify-content:center; z-index:10; transition:all 0.35s; box-shadow:0 8px 24px rgba(0,0,0,0.35); }
+        .dep-carousel-btn:hover { background:var(--gradient-gold); outline-color:var(--gold); color:white; transform:translateY(-50%) scale(1.12); box-shadow:0 12px 32px rgba(197,160,89,0.4); }
+        .dep-carousel-prev { left:8px; }
+        .dep-carousel-next { right:8px; }
+        .dep-dots { display:flex; justify-content:center; gap:8px; margin-top:32px; position:relative; z-index:2; }
+        .dep-dot { width:8px; height:8px; border-radius:50%; background:rgba(197,160,89,0.22); border:none; padding:0; cursor:pointer; transition:all 0.38s ease; }
+        .dep-dot.active { background:var(--gradient-gold); width:26px; border-radius:4px; }
+        .dep-card { flex:0 0 320px; width:320px; background:rgba(255,255,255,0.045); border:1px solid rgba(197,160,89,0.15); border-radius:20px; padding:26px 22px; position:relative; overflow:hidden; backdrop-filter:blur(12px); transition:background 0.4s,border-color 0.4s,box-shadow 0.4s,transform 0.4s; cursor:default; box-sizing:border-box; display:flex; flex-direction:column; }
+        .dep-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(197,160,89,0.45),transparent); transform:scaleX(0); transition:transform 0.5s; }
+        .dep-card:hover::before { transform:scaleX(1); }
+        .dep-card:hover { background:rgba(255,255,255,0.075); border-color:rgba(197,160,89,0.38); transform:translateY(-5px); box-shadow:0 22px 54px rgba(0,0,0,0.35),0 0 0 1px rgba(197,160,89,0.12); }
+        .dep-card.featured-card { background:linear-gradient(135deg,rgba(197,160,89,0.13),rgba(197,160,89,0.04)); border-color:rgba(197,160,89,0.38); box-shadow:0 10px 34px rgba(0,0,0,0.22); }
+        .dep-card-quote { font-family:Georgia,serif; font-size:3.2rem; line-height:0.6; color:rgba(197,160,89,0.32); margin-bottom:10px; display:block; flex-shrink:0; }
+        .dep-card-text  { font-size:0.87rem; color:rgba(255,255,255,0.72); line-height:1.8; font-style:italic; margin-bottom:20px; flex:1; }
+        .dep-card-footer { display:flex; align-items:center; gap:11px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.07); margin-top:auto; flex-shrink:0; }
+        .dep-avatar-container { position:relative; flex-shrink:0; width:44px; height:44px; }
+        .dep-avatar-fallback { position:absolute; inset:0; border-radius:50%; background:var(--gradient-gold); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1rem; border:2px solid rgba(197,160,89,0.4); }
+        .dep-avatar { position:absolute; inset:0; width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid rgba(197,160,89,0.38); opacity:0; transition:opacity 0.3s; }
+        .dep-info { flex:1; min-width:0; }
+        .dep-name { font-weight:600; font-size:0.84rem; color:rgba(255,255,255,0.92); display:block; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .dep-service { font-size:0.68rem; color:rgba(197,160,89,0.72); text-transform:uppercase; letter-spacing:1px; }
+        .dep-verified { display:inline-flex;align-items:center;gap:4px;font-size:0.59rem;color:rgba(197,160,89,0.65);text-transform:uppercase;letter-spacing:0.8px;margin-top:3px; }
+        .dep-verified i { font-size:0.59rem;color:#f4a428; }
+        .dep-stars { color:#f4a428;font-size:0.7rem;letter-spacing:1.5px;flex-shrink:0; }
+        .dep-cta { text-align:center;padding:56px 7% 0;position:relative;z-index:2; }
+
+        /* FAQ */
+        .faq-section { background:linear-gradient(160deg,#ffffff 0%,#fdf8f5 100%);padding:88px 7%; }
+        .faq-layout  { display:grid;grid-template-columns:1fr 1.5fr;gap:68px;align-items:start; }
+        .faq-side p  { font-size:0.92rem;color:var(--text-muted);line-height:1.75;margin-bottom:22px; }
+        .faq-item    { border-bottom:1px solid rgba(197,160,89,0.14); }
+        .faq-q       { padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:13px; }
+        .faq-q span  { font-weight:600;font-size:0.92rem;color:var(--text);transition:color 0.3s; }
+        .faq-q:hover span { color:var(--gold); }
+        .faq-icon    { width:27px;height:27px;border-radius:50%;border:1.5px solid rgba(197,160,89,0.38);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.67rem;flex-shrink:0;transition:all 0.3s; }
+        .faq-a       { max-height:0;overflow:hidden;transition:max-height 0.4s ease;font-size:0.87rem;color:var(--text-muted);line-height:1.75; }
+        .faq-a-inner { padding-bottom:17px; }
+        .faq-item.open .faq-icon { background:var(--gradient-gold);border-color:var(--gold);color:white;transform:rotate(45deg); }
+        .faq-item.open .faq-q span { color:var(--gold); }
+
+        /* CTA BANNER */
+        .cta-banner { background:linear-gradient(135deg,#f5dce6 0%,#fdf0f4 30%,#fdf8f0 70%,#f5e9d0 100%);padding:78px 7%;text-align:center;border-top:1px solid rgba(197,160,89,0.18);border-bottom:1px solid rgba(197,160,89,0.18); }
+        .cta-banner h2 { font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);color:var(--text);margin-bottom:11px; }
+        .cta-banner h2 em { color:var(--gold); }
+        .cta-banner p  { font-size:1rem;color:var(--text-muted);margin-bottom:34px; }
+
+        /* LOCATION */
+        .location-section { display:grid;grid-template-columns:1fr 1.5fr;gap:0;padding:0;min-height:475px; }
+        .location-info { background:linear-gradient(160deg,#fdf8f0 0%,#fff5f8 100%);padding:68px 6%;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(197,160,89,0.14); }
+        .location-info .section-title { font-size:1.95rem; }
+        .location-detail { display:flex;gap:13px;margin-bottom:20px;align-items:flex-start; }
+        .location-detail i { color:var(--gold);margin-top:3px;font-size:0.93rem;flex-shrink:0; }
+        .location-detail-text strong { display:block;font-size:0.88rem;color:var(--text);margin-bottom:3px; }
+        .location-detail-text span   { font-size:0.81rem;color:var(--text-muted);line-height:1.55; }
+        .location-map { height:100%;min-height:475px; }
+        .location-map iframe { width:100%;height:100%;border:0;display:block; }
+
+        /* FOOTER */
+        footer { background:linear-gradient(160deg,#f5dce6 0%,#fdf0f4 100%);color:var(--text);padding:58px 7% 20px;border-top:1px solid rgba(197,160,89,0.18); }
+        .footer-top { display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:46px;padding-bottom:36px;border-bottom:1px solid rgba(197,160,89,0.14); }
+        .footer-logo { display:flex;align-items:center;gap:11px;margin-bottom:14px; }
+        .footer-brand p { font-size:0.84rem;color:var(--text-muted);line-height:1.75;max-width:265px;margin-bottom:16px; }
+        .social-row  { display:flex;gap:9px; }
+        .social-link { width:35px;height:35px;border:1.5px solid rgba(197,160,89,0.28);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--gold-dark);text-decoration:none;font-size:0.93rem;transition:all 0.3s; }
+        .social-link:hover { border-color:var(--gold);background:rgba(197,160,89,0.1); }
+        .footer-col h4 { font-size:0.74rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold-dark);margin-bottom:16px; }
+        .footer-col a,.footer-col p { display:block;font-size:0.83rem;color:var(--text-muted);text-decoration:none;margin-bottom:8px;transition:color 0.3s;line-height:1.55; }
+        .footer-col a:hover { color:var(--gold-dark); }
+        .footer-bottom { text-align:center;padding-top:20px;font-size:0.7rem;color:var(--text-muted);opacity:0.65; }
+        .footer-son { display:inline-block; opacity:0; }
+        .footer-son.animate { animation:footerSonReveal 1.2s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .wpp-float { position:fixed;bottom:25px;right:25px;width:58px;height:58px;background:var(--whatsapp);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:1.7rem;text-decoration:none;z-index:9999;animation:wpp-pulse 2.2s ease-in-out infinite; }
+
+        /* ══ RESPONSIVE ══ */
+        @media(max-width:1100px){ nav a{font-size:0.68rem;letter-spacing:0.8px;padding:5px 6px;} }
+
+        @media(max-width:1024px){
+            .hero { grid-template-columns:1fr; min-height:auto; }
+            .hero-right { display:none; }
+            .hero-left { padding:108px 7% 58px; text-align:center; }
+            .hero-eyebrow { margin:0 auto 26px; }
+            .hero-desc { margin:0 auto 36px; }
+            .hero-ctas { justify-content:center; }
+            .hero-stats { justify-content:center; }
+            .hero-prof-card { display:block; }
+            .bio-section { grid-template-columns:1fr; padding:68px 7%; text-align:center; }
+            .bio-img-wrap { max-width:340px; margin:0 auto; }
+            .bio-video { border-radius:22px; aspect-ratio:auto; max-height:420px; }
+            .bio-content { align-items:center; }
+            .section-label-left { justify-content:center; }
+            .section-label-left::after { display:none; }
+            .gold-divider.left { margin:14px auto; }
+            .bio-badges { justify-content:center; }
+            .faq-layout { grid-template-columns:1fr; gap:38px; }
+            .location-section { grid-template-columns:1fr; }
+            .footer-top { grid-template-columns:1fr 1fr; }
+            .dep-carousel-outer { padding:0 52px; }
+            .limpeza-layout { grid-template-columns:1fr; gap:40px; }
+            .limpeza-content { order:-1; text-align:center; }
+            .limpeza-section-label { margin:0 auto 20px; }
+            .limpeza-divider { margin:16px auto 20px; }
+            .limpeza-steps li { text-align:left; }
+            .limpeza-highlight-box { text-align:left; }
+            /* vídeo limpeza menor em tablet */
+            #limpezaWrap { max-height:480px; max-width:380px; margin:0 auto; width:100%; }
+        }
+
+        @media(max-width:768px){
+            nav { display:none; flex-direction:column; position:absolute; top:72px; left:0; right:0; background:white; padding:18px 6%; border-bottom:1px solid rgba(197,160,89,0.1); box-shadow:0 10px 26px rgba(0,0,0,0.04); z-index:999; }
+            nav.open { display:flex; }
+            .hamburger { display:block; }
+            section { padding:58px 5%; }
+            .espaco-section { padding:48px 5%; }
+            .limpeza-video-section { padding:58px 5%; }
+            .hero-left { padding:98px 5% 48px; }
+            .hero-stats { gap:16px; flex-wrap:wrap; justify-content:center; }
+            .footer-top { grid-template-columns:1fr; gap:26px; }
+            .hero-ctas { flex-direction:column; align-items:center; }
+            .btn-primary,.btn-secondary { justify-content:center; width:100%; max-width:310px; }
+            .services-grid,.promo-grid,.before-after-grid { grid-template-columns:1fr; }
+            .bio-cert { right:0; }
+            .dep-carousel-outer { padding:0 40px; }
+            .dep-carousel-btn { width:38px; height:38px; font-size:0.82rem; }
+            .dep-carousel-viewport { -webkit-mask-image:none; mask-image:none; overflow:hidden; }
+            .dep-carousel-track { gap:0; padding:8px 0 16px; }
+            .dep-card { flex:0 0 100%; width:100%; min-width:100%; max-width:100%; padding:22px 18px; border-radius:16px; }
+            .dep-card-text { font-size:0.85rem; }
+            /* controles sempre visíveis em mobile */
+            .vid-controls { opacity:1 !important; }
+            /* espaço player menor em mobile */
+            .espaco-player-wrap .vid-wrap { max-width:100%; border-radius:22px; }
+            /* limpeza em mobile */
+            #limpezaWrap { max-height:420px; width:100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">✨ <strong>Novidade:</strong> Peeling de Diamante & Drenagem Pós-Operatória &nbsp;·&nbsp; <strong>(11) 98860-5886</strong></div>
+
+<header>
+    <a href="#" class="logo">
+        <div class="logo-icon">R</div>
+        <div><div class="logo-name">Rose Dourado</div><span class="logo-sub">Estética Avançada</span></div>
+    </a>
+    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <nav id="mainNav">
+        <a href="#massagens">Massagens</a>
+        <a href="#estetica-facial">Limpeza de Pele</a>
+        <a href="#pacotes">Pacotes</a>
+        <a href="#sobre">Sobre mim</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#local">Localização</a>
+        <a href="https://wa.me/5511988605886?text=Olá Rose! Quero agendar um horário." class="btn-nav" target="_blank">Agendar agora</a>
+    </nav>
+</header>
+
+<a href="https://wa.me/5511988605886?text=Olá Rose! Vim pelo site e quero saber mais sobre os tratamentos!" class="wpp-float" target="_blank" title="Falar no WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-left">
+        <div class="hero-eyebrow"><div class="eyebrow-dot"></div><span>Estética Premium em São Paulo</span></div>
+        <h1>Sua beleza merece cuidado <em>especializado.</em></h1>
+        <p class="hero-desc">Tratamentos de alta performance que combinam técnica avançada, produtos premium e atendimento acolhedor — porque sua autoestima é prioridade.</p>
+        <div class="hero-ctas">
+            <a href="https://wa.me/5511988605886?text=Olá Rose! Quero agendar um horário pelo site." class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Agendar via WhatsApp</a>
+            <a href="https://wa.me/5511988605886?text=Olá Rose! Vi seu site e gostaria de conhecer os serviços e valores." class="btn-secondary" target="_blank">Ver serviços <i class="fab fa-whatsapp" style="font-size:.76rem"></i></a>
+        </div>
+        <!-- FOTO DA PROFISSIONAL — visível só em mobile/tablet -->
+        <div class="hero-prof-card">
+            <div class="hero-prof-inner">
+                <img src="perfil.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80'" alt="Rose Dourado — Esteticista">
+                <div class="hero-prof-badges">
+                    <span class="hero-prof-badge"><i class="fas fa-award"></i> Atendimento exclusivo</span>
+                    <span class="hero-prof-badge"><i class="fas fa-star" style="color:#f4a428"></i> 5★ · +300 avaliações</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Clientes atendidas</div></div>
+            <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">Anos de experiência</div></div>
+            <div class="stat-item"><div class="stat-number">5★</div><div class="stat-label">Avaliação média</div></div>
+        </div>
+    </div>
+    <div class="hero-right">
+        <div class="hero-image-bg"></div>
+        <img src="perfil.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80'" alt="Rose Dourado Esteticista" class="hero-main-img">
+        <div class="hero-badge"><div class="badge-icon"><i class="fas fa-award"></i></div><div class="badge-text"><strong>Atendimento exclusivo</strong><span>Ambiente reservado & privado</span></div></div>
+        <div class="stars-badge"><div class="stars">★★★★★</div><div class="stars-text">+300 avaliações positivas</div></div>
+    </div>
+</section>
+
+<!-- RIBBON -->
+<div class="ribbon"><div class="ribbon-track">
+    <div class="ribbon-item"><i class="fas fa-spa"></i> Limpeza de Pele Profunda</div>
+    <div class="ribbon-item"><i class="fas fa-gem"></i> Peeling Químico</div>
+    <div class="ribbon-item"><i class="fas fa-leaf"></i> Massagem Relaxante</div>
+    <div class="ribbon-item"><i class="fas fa-water"></i> Drenagem Linfática</div>
+    <div class="ribbon-item"><i class="fas fa-star"></i> Peeling de Diamante</div>
+    <div class="ribbon-item"><i class="fas fa-syringe"></i> Microagulhamento</div>
+    <div class="ribbon-item"><i class="fas fa-hand-sparkles"></i> Reflexologia</div>
+    <div class="ribbon-item"><i class="fas fa-shield-alt"></i> Tratamento para Acne</div>
+    <div class="ribbon-item"><i class="fas fa-sun"></i> Clareamento Facial</div>
+    <div class="ribbon-item"><i class="fas fa-magic"></i> Rejuvenescimento Facial</div>
+    <div class="ribbon-item"><i class="fas fa-tint"></i> Hidratação Profunda</div>
+    <div class="ribbon-item"><i class="fas fa-bolt"></i> Radiofrequência Facial</div>
+    <div class="ribbon-item"><i class="fas fa-heart"></i> Hidrolips</div>
+    <div class="ribbon-item"><i class="fas fa-crown"></i> Massagem Personalizada</div>
+    <div class="ribbon-item"><i class="fas fa-spa"></i> Limpeza de Pele Profunda</div>
+    <div class="ribbon-item"><i class="fas fa-gem"></i> Peeling Químico</div>
+    <div class="ribbon-item"><i class="fas fa-leaf"></i> Massagem Relaxante</div>
+    <div class="ribbon-item"><i class="fas fa-water"></i> Drenagem Linfática</div>
+    <div class="ribbon-item"><i class="fas fa-star"></i> Peeling de Diamante</div>
+    <div class="ribbon-item"><i class="fas fa-syringe"></i> Microagulhamento</div>
+    <div class="ribbon-item"><i class="fas fa-hand-sparkles"></i> Reflexologia</div>
+    <div class="ribbon-item"><i class="fas fa-shield-alt"></i> Tratamento para Acne</div>
+    <div class="ribbon-item"><i class="fas fa-sun"></i> Clareamento Facial</div>
+    <div class="ribbon-item"><i class="fas fa-magic"></i> Rejuvenescimento Facial</div>
+    <div class="ribbon-item"><i class="fas fa-tint"></i> Hidratação Profunda</div>
+    <div class="ribbon-item"><i class="fas fa-bolt"></i> Radiofrequência Facial</div>
+    <div class="ribbon-item"><i class="fas fa-heart"></i> Hidrolips</div>
+    <div class="ribbon-item"><i class="fas fa-crown"></i> Massagem Personalizada</div>
+</div></div>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="section-center">
+        <div class="section-label"><span>Por que nos escolher</span></div>
+        <h2 class="section-title">Uma experiência além do <span>tratamento</span></h2>
+        <div class="gold-divider"></div>
+    </div>
+    <div class="features-grid" id="featuresGrid">
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-gem"></i></div><div class="feature-title">Cosmetologia de Elite</div><p class="feature-text">Produtos de alta performance e ativos premium selecionados para potencializar seus resultados desde a primeira sessão.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><div class="feature-title">Técnicas Certificadas</div><p class="feature-text">Protocolos modernos e atualizados para garantir segurança, eficácia e resultados duradouros em cada atendimento.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-spa"></i></div><div class="feature-title">Ambiente Exclusivo</div><p class="feature-text">Espaço reservado, tranquilo e aconchegante. Sua sessão é só sua — sem interrupções, sem pressa.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-user-check"></i></div><div class="feature-title">Atendimento Personalizado</div><p class="feature-text">Cada pele é única. Rose avalia e adapta o protocolo ideal para as suas necessidades específicas.</p></div>
+    </div>
+</section>
+
+<!-- MASSAGENS -->
+<section id="massagens">
+    <div class="section-center" style="margin-bottom:48px;">
+        <div class="section-label"><span>Massagens</span></div>
+        <h2 class="section-title">Massagens <span>Padrão Spa</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Técnicas relaxantes e terapêuticas para aliviar o estresse, melhorar a circulação e proporcionar equilíbrio completo ao corpo e mente.</p>
+        <br><a href="https://wa.me/5511988605886?text=Olá Rose! Quero conhecer todas as massagens disponíveis." class="btn-secondary" style="display:inline-flex;margin:0 auto;">Falar no WhatsApp <i class="fas fa-arrow-right" style="font-size:.74rem"></i></a>
+    </div>
+    <div class="services-grid">
+        <div class="service-card"><div class="service-img-wrap"><img src="relaxante.webp" alt="Massagem Relaxante"><span class="service-tag">Bem-estar</span></div><div class="service-body"><div class="service-name">Massagem Relaxante com Escalda Pés</div><p class="service-desc">Uma experiência sensorial em um espaço acolhedor com aromaterapia e música ambiente. Promove relaxamento físico e mental profundo, auxiliando no alívio de dores pontuais e tensões do dia a dia.</p><a href="https://wa.me/5511988605886?text=Olá Rose! Quero agendar uma Massagem Relaxante com Escalda Pés." class="btn-wpp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a></div></div>
+        <div class="service-card"><div class="service-img-wrap"><img src="drenagem.webp" alt="Drenagem Linfática"><span class="service-tag">Drenagem</span></div><div class="service-body"><div class="service-name">Drenagem Linfática</div><p class="service-desc">Reduz inchaço e celulite, melhora a circulação e elimina toxinas. Uma técnica que proporciona um relaxamento completo para o corpo e para a mente, renovando suas energias.</p><a href="https://wa.me/5511988605886?text=Olá Rose! Quero agendar Drenagem Linfática." class="btn-wpp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a></div></div>
+        <div class="service-card"><div class="service-img-wrap"><img src="reflexologia.webp" alt="Reflexologia"><span class="service-tag">Terapêutica</span></div><div class="service-body"><div class="service-name">Reflexologia</div><p class="service-desc">Estimulação de pontos estratégicos nos pés que equilibram o funcionamento do organismo, proporcionando um relaxamento profundo e alívio imediato.</p><a href="https://wa.me/5511988605886?text=Olá Rose! Quero agendar Reflexologia." class="btn-wpp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a></div></div>
+        <div class="service-card" style="border:2px solid #d4af37;"><div class="service-img-wrap"><img src="personalizada.webp" alt="Massagem Personalizada"><span class="service-tag" style="background-color:#d4af37;color:white;">Exclusivo</span></div><div class="service-body"><div class="service-name">Monte sua Massagem Personalizada</div><p class="service-desc">Após uma anamnese detalhada, personalizamos a sessão conforme sua necessidade: <strong>Relaxante + Drenagem</strong>, <strong>Relaxante + Reflexologia</strong> ou <strong>Shiatsu em pontos específicos</strong>.</p><a href="https://wa.me/5511988605886?text=Olá Rose! Quero fazer uma avaliação para uma Massagem Personalizada." class="btn-wpp" target="_blank"><i class="fab fa-whatsapp"></i> Consultar</a></div></div>
+    </div>
+</section>
+
+<!-- ESTÉTICA FACIAL -->
+<section id="estetica-facial" style="background:linear-gradient(160deg,#fdf8fb 0%,#ffffff 100%);">
+    <div class="section-center" style="margin-bottom:48px;">
+        <div class="section-label"><span>Estética Facial</span></div>
+        <h2 class="section-title">Limpeza de Pele e <span>Tratamentos Faciais</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Protocolos personalizados para acne, manchas, rejuvenescimento e revitalização da pele, utilizando técnicas modernas e seguras.</p>
+        <br><a href="https://wa.me/5511988605886?text=Olá Rose! Quero conhecer todos os tratamentos faciais disponíveis." class="btn-secondary" style="display:inline-flex;margin:0 auto;">Falar no WhatsApp <i class="fas fa-arrow-right" style="font-size:.74rem"></i></a>
+    </div>
+    <div class="services-grid">
+        <div class="service-card"><div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Limpeza de Pele"><span class="service-tag">Essencial</span></div><div class="service-body"><div class="service-name">Limpeza de Pele Profunda</div><p class="service-desc">Remoção completa de cravos, impurezas e excesso de oleosidade. Um tratamento essencial que promove a desintoxicação celular, deixando sua pele renovada, macia e com um tom muito mais uniforme.</p><a href="https://wa.me/5511988605886?text=Olá Rose! Quero agendar uma Limpeza de Pele Profunda." class="btn-wpp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar</a></div></div>
+        <div class="service-card"><div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=600&q=80" alt="Microagulhamento"><span class="service-tag">Renovação Facial</span></div><div class="service-body"><div class="service-name">Especialista em Estética Facial</div><p class="service-desc">Tratamentos avançados com foco em resultados clínicos e regeneração profunda. Especialista em: <strong>Rejuvenescimento, Acnes, Cicatrizes, Melasma e Manchas.</strong> Utilizando tecnologia de Microagulhamento para uma pele firme, uniforme e revitalizada.</p><a href="https://wa.me/5511988605886?text=Olá Rose! Quero uma avaliação com a especialista em Estética Facial." class="btn-wpp" target="_blank"><i class="fab fa-whatsapp"></i> Agendar Avaliação</a></div></div>
+    </div>
+</section>
+
+<!-- LIMPEZA DE PELE EM AÇÃO -->
+<section class="limpeza-video-section" id="limpeza-em-acao">
+    <div class="limpeza-layout">
+        <div class="limpeza-content">
+            <div class="limpeza-section-label"><i class="fas fa-video"></i><span>Veja ao vivo</span></div>
+            <h2 class="limpeza-title">Limpeza de Pele<br><em>em ação</em></h2>
+            <div class="limpeza-divider"></div>
+            <p class="limpeza-desc">Veja na prática como funciona o protocolo completo de limpeza de pele da Rose Dourado — do preparo ao resultado final. Cada etapa é executada com precisão, cuidado e os melhores produtos do mercado.</p>
+            <ul class="limpeza-steps">
+                <li><div class="limpeza-step-num">1</div><div class="limpeza-step-text"><strong>Higienização & Análise da Pele</strong>Limpeza inicial e avaliação personalizada do tipo de pele para montar o protocolo ideal.</div></li>
+                <li><div class="limpeza-step-num">2</div><div class="limpeza-step-text"><strong>Esfoliação & Abertura dos Poros</strong>Vapor e esfoliação suave para preparar a pele e facilitar a extração segura.</div></li>
+                <li><div class="limpeza-step-num">3</div><div class="limpeza-step-text"><strong>Extração Profissional</strong>Remoção precisa de cravos e impurezas com técnica que preserva a integridade da pele.</div></li>
+                <li><div class="limpeza-step-num">4</div><div class="limpeza-step-text"><strong>Máscara Calmante & Hidratação Final</strong>Fechamento dos poros e nutrição — sua pele sai renovada e luminosa.</div></li>
+            </ul>
+            <div class="limpeza-highlight-box"><i class="fas fa-leaf"></i><p><strong>Resultado visível já na primeira sessão.</strong> Pele mais limpa, uniforme e com brilho natural — sem vermelhidão excessiva, graças ao protocolo calmante exclusivo da Rose.</p></div>
+            <a href="https://wa.me/5511988605886?text=Olá Rose! Vi o vídeo da limpeza de pele e quero agendar a minha sessão!" class="btn-wpp-lg" target="_blank" style="display:inline-flex;"><i class="fab fa-whatsapp"></i> Agendar minha limpeza de pele</a>
+        </div>
+
+        <!-- Vídeo Limpeza de Pele -->
+        <div class="vid-wrap" id="limpezaWrap">
+            <div class="vid-tag"><div class="vid-dot"></div><span>Procedimento real</span></div>
+            <div class="vid-gradient"></div>
+            <div class="vid-info"><div class="vid-info-badge"><i class="fas fa-spa"></i><span>Rose Dourado · Limpeza de Pele Profunda</span></div></div>
+            <div class="vid-overlay" id="lv-overlay"><div class="vid-overlay-icon"><i class="fas fa-pause" id="lv-oicon"></i></div></div>
+            <video id="lv-video" autoplay muted loop playsinline preload="auto">
+                <source src="limpeza.mp4" type="video/mp4">
+            </video>
+            <div class="vid-controls" id="lv-controls">
+                <div class="vid-seek-row">
+                    <span class="vid-time" id="lv-cur">0:00</span>
+                    <input type="range" class="vid-seek" id="lv-seek" min="0" max="100" step="0.1" value="0" style="--prog:0">
+                    <span class="vid-time" id="lv-dur">0:00</span>
+                </div>
+                <div class="vid-btns-row">
+                    <button class="vid-btn" id="lv-playbtn"><i class="fas fa-pause" id="lv-playicon"></i></button>
+                    <div class="vid-vol-wrap"><i class="fas fa-volume-up" id="lv-volicon"></i><input type="range" class="vid-vol" id="lv-vol" min="0" max="1" step="0.05" value="0"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PACOTES -->
+<section id="pacotes" class="promo-section">
+    <div class="section-center">
+        <div class="section-label"><span>Pacotes Personalizados</span></div>
+        <h2 class="section-title">Monte seu <span>protocolo ideal</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Oferecemos pacotes de massagem, estética facial ou combinados. Todos podem ser ajustados conforme sua necessidade. Fale no WhatsApp e monte seu pacote personalizado.</p>
+    </div>
+    <div class="promo-grid">
+        <div class="promo-card"><div class="promo-icon"><i class="fas fa-spa"></i></div><div class="promo-name">Pacote Relax & Modela</div><p class="promo-desc">Ideal para quem busca relaxamento, modelagem e melhora da circulação.</p><ul class="promo-includes"><li><i class="fas fa-check"></i> Massagens Relaxantes</li><li><i class="fas fa-check"></i> Drenagem Linfática</li><li><i class="fas fa-check"></i> Bambuterapia</li><li><i class="fas fa-check"></i> Sessões ajustáveis</li></ul><a href="https://wa.me/5511988605886?text=Olá Rose! Quero montar um pacote personalizado de massagens." class="btn-wpp" target="_blank" style="width:100%;justify-content:center;"><i class="fab fa-whatsapp"></i> Montar meu pacote</a></div>
+        <div class="promo-card"><div class="promo-icon"><i class="fas fa-gem"></i></div><div class="promo-name">Pacote Pele Renovada</div><p class="promo-desc">Tratamentos para acne, manchas e rejuvenescimento facial.</p><ul class="promo-includes"><li><i class="fas fa-check"></i> Limpeza de Pele</li><li><i class="fas fa-check"></i> Peeling</li><li><i class="fas fa-check"></i> Microagulhamento</li><li><i class="fas fa-check"></i> Protocolos personalizados</li></ul><a href="https://wa.me/5511988605886?text=Olá Rose! Quero montar um pacote personalizado facial." class="btn-wpp" target="_blank" style="width:100%;justify-content:center;"><i class="fab fa-whatsapp"></i> Personalizar pacote</a></div>
+        <div class="promo-card featured"><span class="promo-badge">⭐ Mais Completo</span><div class="promo-icon"><i class="fas fa-crown"></i></div><div class="promo-name">Transformação Total</div><p class="promo-desc">Combine massagem e estética facial para resultados ainda mais visíveis.</p><ul class="promo-includes"><li><i class="fas fa-check"></i> Facial + Corporal</li><li><i class="fas fa-check"></i> Sessões combinadas</li><li><i class="fas fa-check"></i> Ajuste conforme objetivo</li><li><i class="fas fa-check"></i> Atendimento personalizado</li></ul><a href="https://wa.me/5511988605886?text=Olá Rose! Quero montar um pacote completo personalizado." class="btn-primary" target="_blank" style="width:100%;justify-content:center;"><i class="fab fa-whatsapp"></i> Consultar pacote personalizado</a></div>
+    </div>
+    <div style="text-align:center;margin-top:40px;"><p style="opacity:.8;font-size:.95rem;">💬 Não encontrou o que procura? Criamos pacotes sob medida para você.</p></div>
+</section>
+
+<!-- ANTES E DEPOIS -->
+<section id="antes-depois">
+    <div class="section-center">
+        <div class="section-label"><span>Resultados reais</span></div>
+        <h2 class="section-title">Antes e <span>depois</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Veja as transformações de clientes reais com os nossos protocolos personalizados.</p>
+    </div>
+    <div class="before-after-grid">
+        <div class="ba-card"><div class="ba-images"><span class="ba-label before">Antes</span><span class="ba-label after">Depois</span><div class="ba-divider"><div class="ba-divider-icon"><i class="fas fa-arrows-alt-h"></i></div></div><img src="antesruga.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=300&q=80'" alt="Antes Pintas"><img src="depoisruga.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=300&q=80'" alt="Depois Pintas"></div><div class="ba-info"><div class="ba-title">Remoção de Pintas e Verrugas</div><div class="ba-sessions">Resultado com protocolo especializado</div></div></div>
+        <div class="ba-card"><div class="ba-images"><span class="ba-label before">Antes</span><span class="ba-label after">Depois</span><div class="ba-divider"><div class="ba-divider-icon"><i class="fas fa-arrows-alt-h"></i></div></div><img src="antesrosto.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=300&q=80'" alt="Antes Rosto"><img src="depoisrosto.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=300&q=80'" alt="Depois Rosto"></div><div class="ba-info"><div class="ba-title">Rejuvenescimento Facial</div><div class="ba-sessions">Suavização de linhas de expressão — pele lisinha e luminosa</div></div></div>
+        <div class="ba-card"><div class="ba-images"><span class="ba-label before">Antes</span><span class="ba-label after">Depois</span><div class="ba-divider"><div class="ba-divider-icon"><i class="fas fa-arrows-alt-h"></i></div></div><img src="antesboca.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=300&q=80'" alt="Antes Lábio"><img src="depoisboca.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=300&q=80'" alt="Depois Lábio"></div><div class="ba-info"><div class="ba-title">Hidrolips — Hidratação Labial Profunda</div><div class="ba-sessions">Mais brilho, cor e vida — rejuvenescimento labial real</div></div></div>
+    </div>
+    <p style="text-align:center;margin-top:18px;font-size:0.76rem;color:var(--text-muted);">* Resultados individuais podem variar. Imagens ilustrativas.</p>
+    <div style="text-align:center;margin-top:28px;"><a href="https://wa.me/5511988605886?text=Olá Rose! Vi os resultados no site e quero agendar um tratamento!" class="btn-wpp" target="_blank" style="font-size:.9rem;padding:13px 30px;"><i class="fab fa-whatsapp"></i> Quero esses resultados!</a></div>
+</section>
+
+<!-- NOSSO ESPAÇO -->
+<section class="espaco-section" id="espaco">
+    <div class="section-center">
+        <div class="section-label"><span>Nosso espaço</span></div>
+        <h2 class="section-title">Uma sala pensada para o seu <span>conforto</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Ambiente tranquilo, iluminação aconchegante e toda a estrutura para você relaxar desde o momento em que chega.</p>
+    </div>
+
+    <!-- Vídeo Espaço — portrait igual ao limpeza -->
+    <div class="espaco-player-wrap">
+        <div class="vid-wrap espaco" id="espacoWrap">
+            <div class="vid-tag espaco-tag"><i class="fas fa-map-marker-alt"></i><span>Nosso espaço exclusivo</span></div>
+            <div class="vid-gradient"></div>
+            <div class="vid-overlay" id="es-overlay"><div class="vid-overlay-icon"><i class="fas fa-pause" id="es-oicon"></i></div></div>
+            <video id="es-video" autoplay muted loop playsinline preload="auto">
+                <source src="espaço.mp4" type="video/mp4">
+            </video>
+            <div class="vid-controls" id="es-controls">
+                <div class="vid-seek-row">
+                    <span class="vid-time" id="es-cur">0:00</span>
+                    <input type="range" class="vid-seek" id="es-seek" min="0" max="100" step="0.1" value="0" style="--prog:0">
+                    <span class="vid-time" id="es-dur">0:00</span>
+                </div>
+                <div class="vid-btns-row">
+                    <button class="vid-btn" id="es-playbtn"><i class="fas fa-pause" id="es-playicon"></i></button>
+                    <div class="vid-vol-wrap"><i class="fas fa-volume-up" id="es-volicon"></i><input type="range" class="vid-vol" id="es-vol" min="0" max="1" step="0.05" value="0"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center;margin-top:36px;"><a href="https://wa.me/5511988605886?text=Olá Rose! Vi o espaço no site e adorei! Quero agendar para conhecer pessoalmente." class="btn-primary" target="_blank" style="display:inline-flex;"><i class="fab fa-whatsapp"></i> Quero conhecer o espaço</a></div>
+</section>
+
+<!-- SOBRE / BIO -->
+<section id="sobre" class="bio-section">
+    <div class="bio-img-wrap"></div>
+    <div class="bio-content">
+        <div class="section-label-left"><span>Sobre a Rose</span></div>
+        <h2>O toque que <em>transforma</em> vidas.</h2>
+        <div class="gold-divider left"></div>
+        <p>Com mais de 8 anos dedicados à estética e ao bem-estar feminino, Rose Dourado construiu uma reputação de excelência baseada em resultados reais e um atendimento genuinamente acolhedor.</p>
+        <p>Formada em Estética e Cosmetologia, ela combina técnicas clássicas com os protocolos mais modernos do mercado, sempre com foco total na individualidade de cada cliente.</p>
+        <p>Mais do que tratar a pele, Rose cuida da autoestima. Cada sessão é pensada para que você saia se sentindo melhor por dentro e por fora.</p>
+        <div class="bio-badges">
+            <span class="bio-badge"><i class="fas fa-graduation-cap"></i> Formada em Estética</span>
+            <span class="bio-badge"><i class="fas fa-star"></i> Cosmetologia Avançada</span>
+            <span class="bio-badge"><i class="fas fa-heart"></i> +500 clientes atendidas</span>
+            <span class="bio-badge"><i class="fas fa-award"></i> 8+ anos de experiência</span>
+        </div>
+        <a href="https://wa.me/5511988605886?text=Olá Rose! Quero falar diretamente com você sobre os tratamentos." class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Falar diretamente com a Rose</a>
+    </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+    <div class="dep-header">
+        <div class="dep-label"><span>Vozes que confiam</span></div>
+        <h2 class="dep-title">O que nossas clientes <em>dizem</em></h2>
+        <p class="dep-subtitle">Mais de 300 avaliações verificadas — experiências reais, transformações reais.</p>
+        <div class="dep-rating-summary">
+            <div class="dep-rating-stars">★★★★★</div>
+            <div class="dep-rating-text"><strong>5.0</strong> · Avaliação média · +300 clientes</div>
+        </div>
+    </div>
+    <div class="dep-carousel-outer">
+        <button class="dep-carousel-btn dep-carousel-prev" id="depPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="dep-carousel-btn dep-carousel-next" id="depNext" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+        <div class="dep-carousel-viewport" id="depViewport">
+            <div class="dep-carousel-track" id="depTrack"></div>
+        </div>
+    </div>
+    <div class="dep-dots" id="depDots"></div>
+    <div class="dep-cta">
+        <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;margin-bottom:20px;text-transform:uppercase;letter-spacing:2px;">Junte-se a centenas de clientes satisfeitas</p>
+        <a href="https://wa.me/5511988605886?text=Olá Rose! Vi os depoimentos e quero agendar minha sessão!" class="btn-wpp-lg" target="_blank"><i class="fab fa-whatsapp"></i> Quero minha transformação!</a>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+    <div class="faq-layout">
+        <div class="faq-side">
+            <div class="section-label-left"><span>Dúvidas</span></div>
+            <h2 class="section-title">Perguntas <span>frequentes</span></h2>
+            <div class="gold-divider left"></div>
+            <p>Ainda tem dúvidas? Manda uma mensagem direto no WhatsApp e a Rose responde rapidinho com todo o carinho.</p>
+            <a href="https://wa.me/5511988605886?text=Olá Rose! Tenho uma dúvida sobre os tratamentos. Pode me ajudar?" class="btn-primary" target="_blank" style="font-size:.83rem;padding:12px 20px;"><i class="fab fa-whatsapp"></i> Perguntar agora</a>
+        </div>
+        <div>
+            <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Quanto tempo dura cada sessão?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-a"><div class="faq-a-inner">A limpeza de pele completa dura em torno de 1h30. As massagens e a drenagem linfática têm duração de 50 a 60 minutos. O peeling de diamante leva cerca de 50 minutos.</div></div></div>
+            <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Quais as formas de pagamento aceitas?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-a"><div class="faq-a-inner">Aceitamos PIX (com desconto especial!), Cartão de Débito e Cartão de Crédito. Para pagamentos de pacotes, temos condições especiais de parcelamento.</div></div></div>
+            <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Preciso de agendamento prévio?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-a"><div class="faq-a-inner">Sim! O atendimento é exclusivo, então cada cliente tem sua hora reservada com antecedência. Para agendar é só mandar mensagem no WhatsApp.</div></div></div>
+            <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Qual o cuidado após a limpeza de pele?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-a"><div class="faq-a-inner">Recomenda-se evitar exposição solar sem protetor nas primeiras 48h, não usar maquiagem no dia e redobrar a hidratação. A Rose orienta individualmente cada cliente ao final da sessão.</div></div></div>
+            <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>A limpeza de pele dói?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-a"><div class="faq-a-inner">A extração pode causar um leve desconforto em peles mais sensíveis, mas nada intenso. Rose trabalha com máximo cuidado e conforto para você se sentir bem durante todo o processo.</div></div></div>
+            <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Onde fica o espaço?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-a"><div class="faq-a-inner">Estamos na Av. Satélite, 130 - Jd Santa Bárbara, São Paulo - SP. Fácil acesso de carro e transporte público.</div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+    <h2>Pronta para começar sua <em>transformação?</em></h2>
+    <p>Agende agora e garanta sua hora exclusiva com Rose Dourado.</p>
+    <a href="https://wa.me/5511988605886?text=Olá Rose! Quero agendar um horário. Pode me indicar os próximos horários disponíveis?" class="btn-wpp-lg" target="_blank"><i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp agora</a>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="local" class="location-section">
+    <div class="location-info">
+        <div class="section-label-left"><span>Localização</span></div>
+        <h2 class="section-title">Como nos <span>encontrar</span></h2>
+        <div class="gold-divider left"></div>
+        <div class="location-detail"><i class="fas fa-map-marker-alt"></i><div class="location-detail-text"><strong>Endereço</strong><span>Av. Satélite, 130 - Jd Santa Bárbara<br>São Paulo - SP</span></div></div>
+        <div class="location-detail"><i class="fas fa-phone-alt"></i><div class="location-detail-text"><strong>Telefone / WhatsApp</strong><span>(11) 98860-5886</span></div></div>
+        <div class="location-detail"><i class="fas fa-envelope"></i><div class="location-detail-text"><strong>E-mail</strong><span>contato@rosedourado.com.br</span></div></div>
+        <div class="location-detail"><i class="fas fa-clock"></i><div class="location-detail-text"><strong>Horário de Atendimento</strong><span>Terça a Sábado · 9h às 18h<br>Somente com agendamento prévio</span></div></div>
+        <a href="https://wa.me/5511988605886?text=Olá Rose! Quero confirmar o endereço e agendar." class="btn-primary" target="_blank" style="margin-top:24px;font-size:.83rem;padding:12px 20px;display:inline-flex;"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+    </div>
+    <div class="location-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.3216377402633!2d-46.4223616!3d-23.5927891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce691515234977%3A0xc3f9584b4927514a!2sAv.%20Sat%C3%A9lite%2C%20130%20-%20Cidade%20Sat%C3%A9lite%20Santa%20B%C3%A1rbara%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2008330-480!5e0!3m2!1spt-BR!2sbr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <div class="footer-logo"><div class="logo-icon" style="width:38px;height:38px;font-size:1.35rem;">R</div><div><div class="logo-name" style="font-size:1.22rem;">Rose Dourado</div><span class="logo-sub">Estética Avançada</span></div></div>
+            <p>Cuidados estéticos de elite em São Paulo. Sua autoestima é a nossa maior conquista.</p>
+            <div class="social-row">
+                <a href="https://www.instagram.com/rosedouradoestetica/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100089683946160" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/5511988605886?text=Olá Rose! Vim pelo site e quero mais informações." class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Serviços</h4>
+            <a href="#massagens">Massagem Relaxante</a>
+            <a href="#massagens">Drenagem Linfática</a>
+            <a href="#estetica-facial">Limpeza de Pele Profunda</a>
+            <a href="#estetica-facial">Peeling Químico</a>
+            <a href="#estetica-facial">Microagulhamento</a>
+            <a href="#pacotes">Ver Pacotes</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contato</h4>
+            <p><i class="fas fa-phone" style="color:var(--gold);margin-right:7px;"></i>(11) 98860-5886</p>
+            <p><i class="fas fa-envelope" style="color:var(--gold);margin-right:7px;"></i>contato@rosedourado.com.br</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:7px;"></i>Av. Satélite, 130 - SP</p>
+            <p><i class="fas fa-clock" style="color:var(--gold);margin-right:7px;"></i>Ter–Sáb: 9h às 18h</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+    <p class="copyright">© 2026 Rose Dourado Estética</p>
+    <p class="tagline">Sua melhor versão, em cada detalhe.</p>
+    <div class="credit">
+      
+    </div>
+</footer>
+
+<script>
+/* ── Nav ── */
+function toggleMenu(){ document.getElementById('mainNav').classList.toggle('open'); }
+function toggleFaq(el){
+    const item=el.parentElement,ans=el.nextElementSibling,open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+        const t=document.querySelector(a.getAttribute('href'));
+        if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('mainNav').classList.remove('open');}
+    });
+});
+
+
+(function(){
+    const grid = document.getElementById('featuresGrid');
+    if(!grid) return;
+
+    let active = null;
+
+    function deactivate(){
+        if(active){ active.classList.remove('touch-active'); active = null; }
+    }
+
+    grid.querySelectorAll('.feature-card').forEach(card => {
+        card.addEventListener('touchstart', e => {
+            // Se tocou no mesmo card ativo → desativa
+            if(active === card){
+                deactivate();
+                return;
+            }
+            // Desativa o anterior e ativa o atual
+            deactivate();
+            card.classList.add('touch-active');
+            active = card;
+        }, { passive: true }); // passive:true — sem preventDefault, evita travamento de scroll
+    });
+
+    // Toca em qualquer lugar fora dos cards → desativa
+    document.addEventListener('touchstart', e => {
+        if(active && !grid.contains(e.target)){
+            deactivate();
+        }
+    }, { passive: true });
+})();
+
+/* ── Utilidade: formata segundos → m:ss ── */
+function fmtTime(s){ s=Math.floor(s||0); return Math.floor(s/60)+':'+(s%60<10?'0':'')+s%60; }
+
+/* ══ PLAYER DE VÍDEO UNIVERSAL ══
+   Recebe IDs e monta play/pause + seek + volume para qualquer vid-wrap */
+function makePlayer(cfg){
+    const vid  = document.getElementById(cfg.vid);
+    const wrap = document.getElementById(cfg.wrap);
+    const ov   = document.getElementById(cfg.overlay);
+    const oico = document.getElementById(cfg.oicon);
+    const pb   = document.getElementById(cfg.playbtn);
+    const pico = document.getElementById(cfg.playicon);
+    const seek = document.getElementById(cfg.seek);
+    const cur  = document.getElementById(cfg.cur);
+    const dur  = document.getElementById(cfg.dur);
+    const vol  = document.getElementById(cfg.vol);
+    const vico = document.getElementById(cfg.volicon);
+    if(!vid||!wrap) return;
+
+    /* forçar autoplay com interacção silenciosa */
+    vid.muted = true;
+    const tryPlay = () => { vid.play().catch(()=>{}); };
+    tryPlay();
+    document.addEventListener('touchstart', tryPlay, { once:true });
+    document.addEventListener('click', tryPlay, { once:true });
+
+    function updateIcons(paused){
+        const icon = paused ? 'fas fa-play' : 'fas fa-pause';
+        if(pico) pico.className = icon;
+        if(oico) oico.className = icon;
+    }
+
+    /* play/pause */
+    function togglePlay(){
+        if(vid.paused){ vid.play(); } else { vid.pause(); }
+        updateIcons(vid.paused);
+        if(ov){ ov.classList.add('show'); setTimeout(()=>ov.classList.remove('show'),700); }
+    }
+    if(pb) pb.addEventListener('click', e=>{ e.stopPropagation(); togglePlay(); });
+    wrap.addEventListener('click', e=>{ if(!e.target.closest('.vid-controls')) togglePlay(); });
+
+    /* seek — atualiza barra de progresso */
+    function updateSeek(){
+        if(!vid.duration) return;
+        const p = vid.currentTime / vid.duration;
+        if(seek){ seek.value = p * 100; seek.style.setProperty('--prog', p); }
+        if(cur) cur.textContent = fmtTime(vid.currentTime);
+    }
+    vid.addEventListener('timeupdate', updateSeek);
+    vid.addEventListener('loadedmetadata', ()=>{
+        if(dur) dur.textContent = fmtTime(vid.duration);
+        updateSeek();
+    });
+    if(seek){
+        seek.addEventListener('input', function(){
+            if(!vid.duration) return;
+            vid.currentTime = (this.value/100) * vid.duration;
+            seek.style.setProperty('--prog', this.value/100);
+        });
+        seek.addEventListener('click', e=>e.stopPropagation());
+    }
+
+    /* volume */
+    if(vol){
+        vol.addEventListener('input', function(){
+            const v = parseFloat(this.value);
+            vid.volume = v; vid.muted = v===0;
+            if(vico) vico.className = v===0?'fas fa-volume-mute':v<0.5?'fas fa-volume-down':'fas fa-volume-up';
+        });
+        vol.addEventListener('click', e=>e.stopPropagation());
+    }
+}
+
+/* Instancia os dois players */
+makePlayer({
+    vid:'lv-video', wrap:'limpezaWrap', overlay:'lv-overlay', oicon:'lv-oicon',
+    playbtn:'lv-playbtn', playicon:'lv-playicon',
+    seek:'lv-seek', cur:'lv-cur', dur:'lv-dur',
+    vol:'lv-vol', volicon:'lv-volicon'
+});
+makePlayer({
+    vid:'es-video', wrap:'espacoWrap', overlay:'es-overlay', oicon:'es-oicon',
+    playbtn:'es-playbtn', playicon:'es-playicon',
+    seek:'es-seek', cur:'es-cur', dur:'es-dur',
+    vol:'es-vol', volicon:'es-volicon'
+});
+
+/* ── CARROSSEL DE DEPOIMENTOS ── */
+(function(){
+    const TESTIMONIALS=[
+    {name:"Roselâine Dourado",img:"roselaine.webp",service:"Massagem Relaxante",text:"Sou cliente, nunca fiz massagem, ganhei dos dias das mães, hoje foi minha primeira vez, estou estressada, nervosa, até com palpitação no coração quando cheguei. Após o procedimento e o lugar aconchegante e chique, saiu fluente, sem dores, e calma, dormi que até Adorei recomendo e vou marcar minha próxima, vale a pena corre lá pessoal. É um momento seu e único e esplêndido. Parabéns Roseli. 👏😍🤩"},
+    {name:"Karen Araujo",img:"karen.webp",service:"Limpeza de Pele",text:"Hoje foi minha primeira experiência com a Rose e simplesmente amei, fiz uma limpeza de pele e o resultado foi melhor que o esperado. Minha pele ficou ótima e com um brilho maravilhoso. Fora o profissionalismo dela que é espetacular. Um ótimo atendimento e dedicação. Recomendo a todos."},
+    {name:"Elaine Felício",img:"elaine.webp",service:"Massagem Relaxante",text:"Hoje tive o prazer de conhecer pessoalmente e fazer uma massagem relaxante com essa Profissional Maravilhosa que nos acolhe com tanta atenção e carinho. Super indico, mãozinhas de fada 🧚‍♀️🩷🩷🩷🩷"},
+    {name:"Caroline Costa",img:"caroline.webp",service:"Massagem",text:"Uma sensação incrível, gostaria de ir todos os dias, massagem extraordinária, lugar aconchegante e acolhedor, Ro.. você arrasa! ❤️"},
+    {name:"Taynara Carli",img:"taynara.webp",service:"Presente Especial",text:"Incrível, maravilhosa! Ganhei de presente e me senti extremamente especial de ganhar uma experiência tão única, digo experiência porque é mágico o que a Rose oferece. Gratidão por tanto estou encantada 🩷"},
+    {name:"Ivonete Brito",img:"ivonete.webp",service:"Tratamento Estético",text:"Experiência maravilhosa! Super profissional e habilidosa! Pretendo voltar em breve. Super recomendo."},
+    {name:"Andressa Deamo Lima Alves",img:"andressa.webp",service:"Múltiplos Procedimentos",text:"Fiz alguns procedimentos com a Rose Dourado, hidratação facial, tratamento para olheiras, massagem relaxante e alta frequência para cicatrização de piercing, e posso afirmar que além do conhecimento que ela tem, ama o que faz, por isso todos tiveram resultados. O ambiente é maravilhoso, agradável, extremamente limpo e cheiroso. Ela é uma profissional completa, vale a pena passar pelas mãos dela."},
+    {name:"Giulia Christine",img:"giulia.webp",service:"Tratamento para Acne",text:"Atendimento maravilhoso! A Rose não apenas cuida da minha pele com a limpeza e peelings, mas fazendo um tratamento de dentro pra fora, tratando a flora intestinal causadora da inflamação na minha pele (acnes), indicando produtos, remédios e cremes! Tratamento completo.. recomendo 😁"},
+    {name:"Mayara Leal",img:"mayara.webp",service:"Tratamento Estético Facial",text:"AMEI! O ambiente, a Rose e seu profissionalismo como, sem dúvidas, o resultado do meu tratamento estético: 'Pele de Mulher Rica'. Recomendo."},
+    {name:"Edenise Rodrigues",img:"edenise.webp",service:"Estética Geral",text:"Profissional maravilhosa! Super indico. Estou tendo uma experiência maravilhosa com ela!! O atendimento é incrível!! Parabéns Rose, continue sempre assim!! 🙏👏👏❤️🥰😘😘"},
+    {name:"Aline",img:"aline.webp",service:"Massoterapia",text:"Excelente profissional! Rose Dourado faz jus à profissão massoterapeuta, promove cura e bem-estar através das técnicas aplicadas e ambiente com qualidade de Spa."},
+    {name:"Thiago Santana",img:"thiago.webp",service:"Cliente Semanal",text:"Sou cliente semanal. Investimento em bem estar que traz retorno garantido! Excelente profissional, em pé de igualdade com famosos spas de São Paulo."},
+    {name:"Eduarda Lima",img:"eduarda.webp",service:"Massagem Relaxante",text:"Simplesmente perfeita! Fiz a massagem relaxante e foi uma experiência incrível. A Rose tem um atendimento impecável. Parabéns pelo profissionalismo."},
+    {name:"Laís Giovanna",img:"lais.webp",service:"Estética",text:"Sensacional! Rose é uma excelente profissional 😊"},
+    {name:"Camila Varago",img:"camila.webp",service:"Autocuidado",text:"A Rose é uma profissional maravilhosa que segue um protocolo incrível! Vale muito a pena ter o seu momento de autocuidado com ela!"},
+    {name:"Núbia Bertolino",img:"nubia.webp",service:"Drenagem Linfática",text:"Olha, foi além das minhas expectativas, já tinha realizado drenagem algumas vezes, mas não chegou nem perto das mãos da Rose. Que além de tirar toda minha retenção ainda me deixou relaxada.. obrigada."},
+    {name:"Regiane Dantas",img:"regiane.webp",service:"Limpeza de Pele",text:"Excelente profissional, sai com a pele linda após a limpeza de pele. Simplesmente maravilhosa 😍"},
+    {name:"Claudia Lemos de Oliveira",img:"claudia.webp",service:"Massagem Relaxante",text:"Atendimento de excelência. Fiz uma massagem relaxante. Simplesmente perfeita."},
+    {name:"Daniel Martins",img:"daniel.webp",service:"Relaxamento Corporal",text:"Ótimo serviço. Atendeu as minhas expectativas. Recomendo para quem tá precisando dar um descanso pro corpo e relaxar..."},
+    {name:"Paulo Rogério Brandão",img:"paulo.webp",service:"Limpeza de Pele",text:"Fiz uma limpeza de pele e foi excelente o resultado, sem dizer que a oleosidade da pele desapareceu. Super indico os trabalhos dela, excelente profissional."},
+    {name:"Mariana Passamani",img:"mariana.webp",service:"Processo Terapêutico",text:"Excelente experiência! Profissional sensacional e que te proporciona uma verdadeira imersão no processo terapêutico."},
+    {name:"Daniel Ramos",img:"daniel_ramos.webp",service:"Reflexologia",text:"Massagista excelente, saímos de lá muito renovados. A melhor reflexologia!!!"},
+    {name:"Wagner Ferreira",img:"wagner.webp",service:"Estética",text:"Superou minhas expectativas. Excelente atendimento. Ótimo ambiente. Simpatia. Me senti especial. Parabéns Rose Dourado!"},
+    {name:"Fabio Gomes",img:"fabio.webp",service:"Estética Geral",text:"Sensacional, super recomendo… dedicada, experimente simplesmente fantástica, nota 1000."},
+    {name:"Katia Amorim",img:"katia.webp",service:"Tratamento Estético",text:"Profissional excelente, meu tratamento foi um sucesso, produtos de qualidade. Eu recomendo."},
+    {name:"Keller Oliveira",img:"keller.webp",service:"Estética",text:"Excelente profissional, atenciosa, dedicada, prestativa e trabalha com ótimos produtos, super indico."},
+    {name:"Vitor Dantas",img:"vitor.webp",service:"Resultados Estéticos",text:"Excelente profissional, super confiável e entrega muitooo resultado."},
+    {name:"Michel Caramelo",img:"michel.webp",service:"Estética",text:"Super profissional! Experiência incrível! Recomendo!"},
+    {name:"Maria Vargas Leão",img:"maria_vargas.webp",service:"Estética",text:"Super profissional! Recomendo de olhos fechados ⭐️"},
+    {name:"Elias Oliveira",img:"elias.webp",service:"Estética Geral",text:"Ótima profissional!"},
+    {name:"Francisco Perinni",img:"francisco.webp",service:"Estética",text:"Ótimo atendimento, super recomendo."},
+    {name:"Renata S",img:"renata.webp",service:"Estética",text:"Sem dúvidas a melhor da região!"},
+    {name:"Maria da Conceição Alves",img:"maria_conceicao.webp",service:"Estética",text:"Obrigada por sua confiança. Estou muito feliz por você estar gostando, gratidão imensa 😍❤️"},
+    {name:"Thiago Barbosa",img:"thiago_barbosa.webp",service:"Cliente Satisfeito",text:""},
+    {name:"Viviane Hoffman",img:"viviane.webp",service:"Cliente Satisfeita",text:""},
+    {name:"Juliana Gonçalves",img:"juliana.webp",service:"Cliente Satisfeita",text:""}
+];
+    const track=document.getElementById('depTrack'),dotsEl=document.getElementById('depDots'),prevBtn=document.getElementById('depPrev'),nextBtn=document.getElementById('depNext'),viewport=document.getElementById('depViewport');
+    if(!track)return;
+    TESTIMONIALS.forEach((t,idx)=>{
+        const init=t.name.split(' ').slice(0,2).map(w=>w[0].toUpperCase()).join('');
+        const card=document.createElement('div');
+        card.className='dep-card'+(idx===0?' featured-card':'');
+        card.innerHTML=`
+            ${t.text?`<span class="dep-card-quote">❝</span><p class="dep-card-text">${t.text}</p>`:'<div style="flex:1;"></div>'}
+            <div class="dep-card-footer" style="${t.text?'':'border-top:none;padding-top:0;'}">
+                <div class="dep-avatar-container">
+                    <div class="dep-avatar-fallback">${init}</div>
+                    <img src="${t.img}" alt="${t.name}" class="dep-avatar" onload="this.style.opacity='1';" onerror="this.style.display='none';">
+                </div>
+                <div class="dep-info">
+                    <span class="dep-name">${t.name}</span>
+                    <span class="dep-service">${t.service}</span>
+                    <div class="dep-verified"><i class="fas fa-check-circle"></i> Avaliação verificada</div>
+                </div>
+                <div class="dep-stars">★★★★★</div>
+            </div>`;
+        track.appendChild(card);
+    });
+    function isMobile(){return window.innerWidth<=768;}
+    const DCW=320,DG=20;
+    function cardStep(){if(isMobile()){const r=viewport.getBoundingClientRect();return r.width>0?r.width:viewport.clientWidth;}return DCW+DG;}
+    function visCount(){if(isMobile())return 1;return Math.max(1,Math.floor((viewport.offsetWidth+DG)/(DCW+DG)));}
+    function maxIdx(){return Math.max(0,TESTIMONIALS.length-visCount());}
+    let cur=0,autoT,drag=false,sx=0,so=0;
+    function buildDots(){dotsEl.innerHTML='';const max=maxIdx(),n=Math.min(max+1,9);if(n<=1)return;for(let i=0;i<n;i++){const b=document.createElement('button');b.className='dep-dot';const t=Math.round(i*max/(n-1));b.addEventListener('click',()=>{goTo(t);resetAuto();});dotsEl.appendChild(b);}updDots();}
+    function updDots(){const d=Array.from(dotsEl.querySelectorAll('.dep-dot'));if(!d.length)return;const max=maxIdx();const a=max>0?Math.round(cur/max*(d.length-1)):0;d.forEach((x,i)=>x.classList.toggle('active',i===a));}
+    function goTo(i){cur=Math.max(0,Math.min(i,maxIdx()));track.style.transform=`translateX(-${cur*cardStep()}px)`;updDots();}
+    function next(){goTo(cur>=maxIdx()?0:cur+1);}
+    function prev(){goTo(cur<=0?maxIdx():cur-1);}
+    function resetAuto(){clearInterval(autoT);autoT=setInterval(next,4800);}
+    prevBtn.addEventListener('click',()=>{prev();resetAuto();});
+    nextBtn.addEventListener('click',()=>{next();resetAuto();});
+    resetAuto();
+    track.addEventListener('mousedown',e=>{drag=true;sx=e.clientX;so=cur*cardStep();track.style.transition='none';clearInterval(autoT);});
+    document.addEventListener('mousemove',e=>{if(!drag)return;track.style.transform=`translateX(-${Math.max(0,so+(sx-e.clientX))}px)`;});
+    document.addEventListener('mouseup',e=>{if(!drag)return;drag=false;track.style.transition='';const d=sx-e.clientX;if(Math.abs(d)>60)d>0?next():prev();else goTo(cur);resetAuto();});
+    track.addEventListener('touchstart',e=>{drag=true;sx=e.touches[0].clientX;so=cur*cardStep();track.style.transition='none';clearInterval(autoT);},{passive:true});
+    track.addEventListener('touchmove',e=>{if(!drag)return;track.style.transform=`translateX(-${Math.max(0,so+(sx-e.touches[0].clientX))}px)`;},{passive:true});
+    track.addEventListener('touchend',e=>{if(!drag)return;drag=false;track.style.transition='';const d=sx-e.changedTouches[0].clientX;if(Math.abs(d)>40)d>0?next():prev();else goTo(cur);resetAuto();});
+    const obs=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){track.querySelectorAll('.dep-card').forEach((c,i)=>{c.style.animation=`cardIn 0.5s ease ${i*0.035}s both`;});obs.unobserve(en.target);}});},{threshold:0.15});
+    obs.observe(track);
+    buildDots();
+    window.addEventListener('resize',()=>{goTo(0);buildDots();});
+})();
+
+/* ── Footer filho ── */
+(function(){
+    const el=document.getElementById('footerSon');if(!el)return;
+    const ob=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting){setTimeout(()=>el.classList.add('animate'),300);ob.unobserve(el);}});},{threshold:0.8});
+    ob.observe(el);
+})();
+</script>
+</body>
+</html>
