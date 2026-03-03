@@ -575,10 +575,45 @@
         @media(max-width:1100px){ nav a{font-size:0.68rem;letter-spacing:0.8px;padding:5px 6px;} }
 
         @media(max-width:1024px){
-            nav { display:none; flex-direction:column; position:fixed; top:0; left:0; right:0; bottom:0; background:#fff; padding:100px 6% 40px; z-index:9998; overflow-y:auto; }
+            nav {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 0; left: 0; right: 0;
+                background: linear-gradient(160deg, #fdf0f4 0%, #fff 60%, #fdf8f0 100%);
+                padding: 88px 7% 36px;
+                z-index: 9998;
+                border-bottom: 2px solid rgba(197,160,89,0.18);
+                box-shadow: 0 16px 48px rgba(197,160,89,0.12);
+            }
             nav.open { display:flex !important; }
-            nav a { font-size:1.1rem; padding:18px 0; border-bottom:1px solid rgba(197,160,89,0.12); letter-spacing:1px; color:var(--text); font-weight:500; }
-            nav a:last-child { border-bottom:none; margin-top:8px; }
+            nav a {
+                font-size: 1rem;
+                font-weight: 500;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(197,160,89,0.13);
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                color: var(--text);
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: color 0.2s;
+            }
+            nav a:hover { color: var(--gold); }
+            nav a:last-child {
+                border-bottom: none;
+                margin-top: 14px;
+                background: var(--gradient-gold);
+                color: white !important;
+                border-radius: 50px;
+                justify-content: center;
+                padding: 15px 24px;
+                font-size: 0.88rem;
+                box-shadow: 0 6px 20px rgba(197,160,89,0.35);
+                letter-spacing: 1px;
+            }
             .hamburger { display:block; }
 
             .hero { grid-template-columns:1fr; min-height:auto; height:auto; }
@@ -664,7 +699,11 @@
     </a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu" type="button"><i class="fas fa-bars"></i></button>
     <nav id="mainNav">
-        <button onclick="toggleMenu()" style="position:absolute;top:22px;right:5%;background:none;border:none;font-size:1.6rem;color:var(--gold);cursor:pointer;padding:8px;"><i class="fas fa-times"></i></button>
+        <button onclick="toggleMenu()" style="position:fixed;top:20px;right:5%;background:none;border:none;font-size:1.5rem;color:var(--gold-dark);cursor:pointer;padding:10px;z-index:9999;"><i class="fas fa-times"></i></button>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid rgba(197,160,89,0.18);">
+            <div class="logo-icon" style="width:38px;height:38px;font-size:1.3rem;">R</div>
+            <div><div class="logo-name" style="font-size:1.1rem;">Rose Dourado</div><span class="logo-sub">Estética Avançada</span></div>
+        </div>
         <a href="#massagens">Massagens</a>
         <a href="#estetica-facial">Limpeza de Pele</a>
         <a href="#pacotes">Pacotes</a>
