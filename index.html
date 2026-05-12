@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rose Dourado | Estética Avançada & Bem-Estar</title>
-    <meta name="description" content="Tratamentos estéticos de elite em São Paulo. Limpeza de pele, massagens e drenagem com atendimento exclusivo e resultados reais. Agende já!">
+    <title>Rose Dourado | Estética Avançada em São Paulo · Limpeza de Pele & Massagens</title>
+    <meta name="description" content="Estética avançada em São Paulo. Limpeza de pele profunda, massagem relaxante, drenagem linfática e muito mais. +500 clientes satisfeitas · Avaliação 5★ · Agende pelo WhatsApp!">
+    <meta name="keywords" content="estética São Paulo, limpeza de pele SP, massagem relaxante São Paulo, drenagem linfática SP, peeling diamante, esteticista São Paulo">
+    <meta property="og:title" content="Rose Dourado · Estética Avançada em São Paulo">
+    <meta property="og:description" content="+500 clientes atendidas. Limpeza de pele, massagens e tratamentos estéticos com atendimento exclusivo. Agende já!">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -581,7 +586,7 @@
                 position: fixed;
                 top: 0; left: 0; right: 0;
                 background: linear-gradient(160deg, #fdf0f4 0%, #fff 60%, #fdf8f0 100%);
-                padding: 88px 7% 36px;
+                padding: 72px 7% 36px;
                 z-index: 9998;
                 border-bottom: 2px solid rgba(197,160,89,0.18);
                 box-shadow: 0 16px 48px rgba(197,160,89,0.12);
@@ -698,12 +703,8 @@
         <div><div class="logo-name">Rose Dourado</div><span class="logo-sub">Estética Avançada</span></div>
     </a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu" type="button"><i class="fas fa-bars"></i></button>
+    <button id="menuCloseBtn" onclick="toggleMenu()" aria-label="Fechar menu" style="display:none;position:fixed;top:18px;right:5%;background:rgba(255,255,255,0.95);border:1.5px solid rgba(197,160,89,0.3);border-radius:50%;width:40px;height:40px;font-size:1.1rem;color:var(--gold-dark);cursor:pointer;z-index:9999;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(197,160,89,0.18);transition:all 0.2s;"><i class="fas fa-times"></i></button>
     <nav id="mainNav">
-        <button onclick="toggleMenu()" style="position:fixed;top:20px;right:5%;background:none;border:none;font-size:1.5rem;color:var(--gold-dark);cursor:pointer;padding:10px;z-index:9999;"><i class="fas fa-times"></i></button>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid rgba(197,160,89,0.18);">
-            <div class="logo-icon" style="width:38px;height:38px;font-size:1.3rem;">R</div>
-            <div><div class="logo-name" style="font-size:1.1rem;">Rose Dourado</div><span class="logo-sub">Estética Avançada</span></div>
-        </div>
         <a href="#massagens">Massagens</a>
         <a href="#estetica-facial">Limpeza de Pele</a>
         <a href="#pacotes">Pacotes</a>
@@ -1115,8 +1116,11 @@
 function toggleMenu(){
     var nav = document.getElementById('mainNav');
     var isOpen = nav.classList.toggle('open');
-    var icon = document.querySelector('.hamburger i');
-    if(icon) icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+    var hamburger = document.getElementById('hamburgerBtn');
+    var closeBtn = document.getElementById('menuCloseBtn');
+    if(hamburger) hamburger.style.display = isOpen ? 'none' : 'flex';
+    if(closeBtn) closeBtn.style.display = isOpen ? 'flex' : 'none';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
 }
 
 function toggleFaq(el){
@@ -1128,8 +1132,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',e=>{
         const t=document.querySelector(a.getAttribute('href'));
         if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('mainNav').classList.remove('open');
-        var icon = document.querySelector('.hamburger i');
-        if(icon) icon.className = 'fas fa-bars';}
+        var hamburger = document.getElementById('hamburgerBtn');
+        var closeBtn = document.getElementById('menuCloseBtn');
+        if(hamburger) hamburger.style.display='flex';
+        if(closeBtn) closeBtn.style.display='none';
+        document.body.style.overflow='';}
     });
 });
 
