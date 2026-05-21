@@ -29,10 +29,12 @@
 
         /* HEADER */
         header { background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); padding: 0 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; overflow: visible; height: 72px; border-bottom: 1px solid rgba(197,160,89,0.15); box-shadow: 0 4px 28px rgba(197,160,89,0.06); }
-        .logo { display: flex; align-items: center; gap: 11px; text-decoration: none; flex-shrink: 0; }
-        .logo-icon { width: 44px; height: 44px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Dancing Script', cursive; font-size: 1.55rem; color: white; box-shadow: 0 4px 14px rgba(197,160,89,0.35); flex-shrink: 0; }
-        .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.42rem; color: var(--gold-dark); font-weight: 700; line-height: 1; }
-        .logo-sub { font-size: 0.52rem; text-transform: uppercase; letter-spacing: 3px; color: var(--rose-dark); display: block; margin-top: 3px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; background: rgba(255,255,255,0.92); padding: 10px 16px; border-radius: 50px; box-shadow: 0 16px 34px rgba(197,160,89,0.14); border: 1px solid rgba(197,160,89,0.16); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .logo:hover { transform: translateY(-1px); box-shadow: 0 20px 42px rgba(197,160,89,0.22); }
+        .logo-icon { width: 50px; height: 50px; background: radial-gradient(circle at 30% 30%, rgba(255,244,210,0.98), rgba(197,160,89,0.95) 40%, rgba(154,122,60,0.95) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Dancing Script', cursive; font-size: 1.65rem; color: #fff; box-shadow: 0 10px 26px rgba(197,160,89,0.28), inset 0 0 0 1px rgba(255,255,255,0.35); flex-shrink: 0; border: 1px solid rgba(255,255,255,0.35); }
+        .logo-icon img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 50%; }
+        .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 800; line-height: 1; background: linear-gradient(135deg, #d6a45f, #f8e3b2, #cc8a94); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+        .logo-sub { font-size: 0.56rem; text-transform: uppercase; letter-spacing: 3px; color: var(--rose-dark); display: block; margin-top: 4px; font-weight: 700; }
         nav { display: flex; gap: 6px; align-items: center; flex-wrap: nowrap; }
         nav a { text-decoration: none; color: var(--text); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.2px; transition: color 0.3s; padding: 6px 8px; white-space: nowrap; border-radius: 6px; }
         nav a:hover { color: var(--gold); background: rgba(197,160,89,0.06); }
@@ -60,7 +62,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 30%;
+            object-position: center center;
+            filter: saturate(1.05) contrast(1.02);
+            transform: scale(1.01);
             z-index: 0;
             pointer-events: none;
             display: block;
@@ -135,8 +139,8 @@
         .stat-item    { text-align:center; }
         .stat-number  { font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:700;color:var(--gold); }
         .stat-label   { font-size:0.67rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-top:2px; }
-        .hero-right   { position:relative;height:100%;min-height:calc(100vh - 109px); }
-        .hero-image-bg{ position:absolute;inset:0;background:var(--gradient-rose);clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%); }
+        .hero-right   { position:relative;height:100%;min-height:calc(100vh - 109px); overflow:hidden; }
+        .hero-image-bg{ position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(520px,88%);height:min(380px,72%);background:radial-gradient(circle at top right, rgba(255,255,255,0.96) 0%, rgba(252,234,243,0.88) 30%, rgba(249,216,229,0.96) 70%, rgba(254,246,244,1) 100%);border-radius: 30px;box-shadow:0 28px 80px rgba(235,180,200,0.16), inset 0 0 0 1px rgba(255,255,255,0.5); }
         .hero-main-img{ position:absolute;bottom:0;left:10%;width:80%;max-height:87vh;object-fit:cover;object-position:top;border-radius:200px 200px 0 0;box-shadow:-20px 20px 60px rgba(0,0,0,0.1); }
         .hero-badge   { position:absolute;bottom:40px;left:2%;background:white;border-radius:18px;padding:14px 18px;box-shadow:0 14px 38px rgba(0,0,0,0.08);display:flex;align-items:center;gap:12px;z-index:3;animation:float 3s ease-in-out infinite; }
         .badge-icon   { width:40px;height:40px;background:var(--gradient-gold);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white; }
@@ -393,6 +397,7 @@
         .social-link:hover { border-color:var(--gold);background:rgba(197,160,89,0.1); }
         .footer-col h4 { font-size:0.74rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold-dark);margin-bottom:16px; }
         .footer-col a,.footer-col p { display:block;font-size:0.83rem;color:var(--text-muted);text-decoration:none;margin-bottom:8px;transition:color 0.3s;line-height:1.55; }
+        .footer-col p a { display:inline; }
         .footer-col a:hover { color:var(--gold-dark); }
         .footer-bottom { text-align:center;padding-top:20px;font-size:0.7rem;color:var(--text-muted);opacity:0.65; }
         .footer-son { display:inline-block; opacity:0; }
@@ -621,9 +626,10 @@
             }
             .hamburger { display:block; }
 
-            .hero { grid-template-columns:1fr; min-height:auto; height:auto; }
+            .hero { grid-template-columns:1fr; min-height:calc(100vh - 109px); height:calc(100vh - 109px); }
             .hero-right { display:none; }
-            .hero-left { padding:80px 6% 36px; text-align:center; }
+            .hero-left { padding:80px 6% 36px; text-align:center; display:flex; flex-direction:column; justify-content:center; min-height:calc(100vh - 109px); }
+            .hero-bg-img { object-position:center center; }
             .hero-bg-overlay {
                 background: linear-gradient(
                     160deg,
@@ -699,7 +705,7 @@
 
 <header>
     <a href="#" class="logo">
-        <div class="logo-icon">R</div>
+        <div class="logo-icon"><img src="logo.webp" alt="Logo Rose Dourado" aria-hidden="true"></div>
         <div><div class="logo-name">Rose Dourado</div><span class="logo-sub">Estética Avançada</span></div>
     </a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu" type="button"><i class="fas fa-bars"></i></button>
@@ -722,9 +728,9 @@
 
     <!-- ── Imagem de fundo leve e elegante ── -->
     <img
-        src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1800&q=55&sat=-20"
+        src="hero.webp"
         class="hero-bg-img"
-        alt=""
+        alt="Tratamento estético Rose Dourado"
         aria-hidden="true"
         loading="eager"
         fetchpriority="high"
@@ -1069,7 +1075,7 @@
         <div class="gold-divider left"></div>
         <div class="location-detail"><i class="fas fa-map-marker-alt"></i><div class="location-detail-text"><strong>Endereço</strong><span>Av. Satélite, 130 - Jd Santa Bárbara<br>São Paulo - SP</span></div></div>
         <div class="location-detail"><i class="fas fa-phone-alt"></i><div class="location-detail-text"><strong>Telefone / WhatsApp</strong><span>(11) 98860-5886</span></div></div>
-        <div class="location-detail"><i class="fas fa-envelope"></i><div class="location-detail-text"><strong>E-mail</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c0f0302180d18032c1e031f090803191e0d0803420f0301420e1e">[email&#160;protected]</a></span></div></div>
+        <div class="location-detail"><i class="fas fa-envelope"></i><div class="location-detail-text"><strong>E-mail</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c0f0302180d18032c1e031f090803191e0d0803420f0301420e1e">rosedouradozumba@gmail.com</a></span></div></div>
         <div class="location-detail"><i class="fas fa-clock"></i><div class="location-detail-text"><strong>Horário de Atendimento</strong><span>Terça a Sábado · 9h às 18h<br>Somente com agendamento prévio</span></div></div>
         <a href="https://wa.me/5511988605886?text=Olá Rose! Quero confirmar o endereço e agendar." class="btn-primary" target="_blank" style="margin-top:24px;font-size:.83rem;padding:12px 20px;display:inline-flex;"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
     </div>
@@ -1080,7 +1086,7 @@
 <footer>
     <div class="footer-top">
         <div class="footer-brand">
-            <div class="footer-logo"><div class="logo-icon" style="width:38px;height:38px;font-size:1.35rem;">R</div><div><div class="logo-name" style="font-size:1.22rem;">Rose Dourado</div><span class="logo-sub">Estética Avançada</span></div></div>
+            <div class="footer-logo"><div class="logo-icon" style="width:38px;height:38px;font-size:1.35rem;"><img src="logo.webp" alt="Logo Rose Dourado" aria-hidden="true"></div><div><div class="logo-name" style="font-size:1.22rem;">Rose Dourado</div><span class="logo-sub">Estética Avançada</span></div></div>
             <p>Cuidados estéticos de elite em São Paulo. Sua autoestima é a nossa maior conquista.</p>
             <div class="social-row">
                 <a href="https://www.instagram.com/rosedouradoestetica/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -1100,7 +1106,7 @@
         <div class="footer-col">
             <h4>Contato</h4>
             <p><i class="fas fa-phone" style="color:var(--gold);margin-right:7px;"></i>(11) 98860-5886</p>
-            <p><i class="fas fa-envelope" style="color:var(--gold);margin-right:7px;"></i><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="07646869736673684775687462636872756663682964686a296575">[email&#160;protected]</a></p>
+            <p><i class="fas fa-envelope" style="color:var(--gold);margin-right:7px;"></i><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="07646869736673684775687462636872756663682964686a296575">rosedouradozumba@gmail.com</a></p>
             <p><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:7px;"></i>Av. Satélite, 130 - SP</p>
             <p><i class="fas fa-clock" style="color:var(--gold);margin-right:7px;"></i>Ter–Sáb: 9h às 18h</p>
         </div>
